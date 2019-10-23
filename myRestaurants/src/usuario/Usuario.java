@@ -6,6 +6,7 @@ public class Usuario {
 	private String nombreUsuario;
 	private String contrasenya;
 	private int telefono;
+	//private int tarjetaCredito;
 	private String direccion;
 	private TipoUsuario tipo;
 	
