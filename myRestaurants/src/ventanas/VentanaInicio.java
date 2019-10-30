@@ -23,7 +23,7 @@ public class VentanaInicio extends JFrame{
 		
 		// labels and buttons
 			
-		Jbt = new JButton("Soy Administrador");
+		Jbt = new JButton("Soy Administrador.");
 		Jbt2 = new JButton("Soy Comensal");
 		Hscr = new JLabel("Crear usuario");
 		
