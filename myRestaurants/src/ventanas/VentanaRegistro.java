@@ -5,7 +5,7 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.*;
 import java.awt.event.*;
-
+/**/
 public class VentanaRegistro extends JFrame{
 	private JTextField textNombre;
 	private JTextField textApellidos;

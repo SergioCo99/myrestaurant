@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.*;
 
 public class VentanaInicio extends JFrame{
-	
+	/**/
 	private static final long serialVersionUID = 1L;
 	JButton Jbt;
 	JButton Jbt2;
