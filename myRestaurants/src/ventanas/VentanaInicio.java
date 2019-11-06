@@ -1,8 +1,11 @@
 package ventanas;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
 import ventanas.ImagenInicio;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.*;
 
 public class VentanaInicio extends JFrame{
@@ -11,7 +14,7 @@ public class VentanaInicio extends JFrame{
 	JButton Jbt;
 	JButton Jbt2;
 	JButton Jbt3;
-	JLabel Hscr;
+	JButton Hscr;
 	
 	public VentanaInicio(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,9 +26,9 @@ public class VentanaInicio extends JFrame{
 		
 		// labels and buttons
 			
-		Jbt = new JButton("Soy Administrador.");
+		Jbt = new JButton("Soy Administrador");
 		Jbt2 = new JButton("Soy Comensal");
-		Hscr = new JLabel("Crear usuario");
+		Hscr = new JButton("Crear usuario");
 		
 		// set panels
 			
@@ -44,7 +47,7 @@ public class VentanaInicio extends JFrame{
 		sel2.add(Jbt2);
 		Jbt2.setBackground(Color.WHITE);
 		sel3.add(Hscr);
-		Hscr.setBackground(Color.RED);
+		Hscr.setBackground(Color.orange);
 		
 		
 		// add panels to frame 
@@ -59,10 +62,22 @@ public class VentanaInicio extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//hacer frame visible
 		setVisible(true);
-		
+		Hscr.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				VentanaRegistro v1 = new VentanaRegistro();
+				v1.setSize(1000, 600);
+				v1.setVisible(true);
+				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				v1.setTitle("MyRestaurant");
+				dispose();
+			}
+		}
+		);
 	}
 
-
+	
 	public static void main(String[] args)
 	{
 		EventQueue.invokeLater(new Runnable( ) {

@@ -1,6 +1,8 @@
 package ventanas;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -17,6 +19,10 @@ public class VentanaRegistro extends JFrame{
 	
 	//Hay que vincularlo con la BD
 	public VentanaRegistro() {
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		
 		
 		JPanel izquierda = new JPanel(new GridLayout(7,2));
 		JPanel derecha = new JPanel();
@@ -72,7 +78,12 @@ public class VentanaRegistro extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				VentanaInicio v = new VentanaInicio();
+				v.setSize(1000, 600);
+				v.setVisible(true);
+				v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				v.setTitle("MyRestaurant");
+				dispose();
 				
 			}
 		});
@@ -96,13 +107,13 @@ public class VentanaRegistro extends JFrame{
 		
 		
 		
-		
+		/*
 		this.setTitle("Registro");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.pack();
 		this.setSize(1000, 600);
 		this.setVisible(true);
-
+*/
 	
 	}
 	public static void main(String[] args) {
