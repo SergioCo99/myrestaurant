@@ -10,7 +10,9 @@ public class VentanaRegistro extends JFrame{
 	private JTextField textNombre;
 	private JTextField textApellidos;
 	private JTextField textUsuario;
-	private JTextField textContrasenya;
+	private JTextField textCorreo;
+	private JPasswordField textContrasenya;
+	private JPasswordField textConfirmarContrasenya;
 	private JTextField textTelefono;
 	private JRadioButton usuario;
 	private JRadioButton gestor;
@@ -24,10 +26,11 @@ public class VentanaRegistro extends JFrame{
 		setBounds(100, 100, 450, 300);
 		
 		
-		JPanel izquierda = new JPanel(new GridLayout(7,2));
+		JPanel izquierda = new JPanel(new GridLayout(9,3));
 		JPanel derecha = new JPanel();
-		JPanel arriba = new JPanel(new GridLayout(2,7));
+		JPanel arriba = new JPanel(new GridLayout(3,9));
 		JPanel abajo = new JPanel();
+		
 		JPanel abajoDerecha = new JPanel();
 		abajoDerecha.add(abajo,derecha);
 		
@@ -39,7 +42,7 @@ public class VentanaRegistro extends JFrame{
 		cp.add(arriba, BorderLayout.NORTH);
 		cp.add(abajo, BorderLayout.SOUTH);
 		cp.add(abajoDerecha);
-		
+		cp.setBounds(0, 0, 10, 5);
 	
 		
 
@@ -57,11 +60,14 @@ public class VentanaRegistro extends JFrame{
 
 		
 		textNombre = new JTextField();
-		textNombre.setBounds(300, 300, 10, 5);
-		textApellidos = new JTextField(5);
-		textUsuario = new JTextField(10);
-		textContrasenya = new JTextField(10);
-		textTelefono = new JTextField(10);
+		
+		//textNombre.setBounds(300, 300, 10, 5);
+		textApellidos = new JTextField();
+		textUsuario = new JTextField();
+		textCorreo = new JTextField();
+		textContrasenya = new JPasswordField();
+		textConfirmarContrasenya = new JPasswordField();
+		textTelefono = new JTextField();
 		
 		
 		JButton botonRegistro = new JButton("Registrarse ");
@@ -89,20 +95,26 @@ public class VentanaRegistro extends JFrame{
 		});
 		
 		
-		izquierda.add(new JLabel("Tipo de usuario:"));
+		izquierda.add(new JLabel("                    Tipo de usuario:"));
 		izquierda.add(panelTipo);
-		izquierda.add(new JLabel("Nombre:"));
+		izquierda.add(new JLabel("                    Nombre:"));
 		izquierda.add(textNombre);
-		izquierda.add(new JLabel("Apellidos:"));
+		izquierda.add(new JLabel("                    Apellidos:"));
 		izquierda.add(textApellidos);
-		izquierda.add(new JLabel("Usuario:"));
+		izquierda.add(new JLabel("                    Usuario:"));
 		izquierda.add(textUsuario);
-		izquierda.add(new JLabel("ContraseÃ±a:"));
+		izquierda.add(new JLabel("                    Correo:"));
+		izquierda.add(textCorreo);
+		izquierda.add(new JLabel("                    Contraseña:"));
 		izquierda.add(textContrasenya);
-		izquierda.add(new JLabel("Telefono:"));
+		izquierda.add(new JLabel("                    Confirmar Contraseña:"));
+		izquierda.add(textConfirmarContrasenya);
+		izquierda.add(new JLabel("                    Telefono:"));
 		izquierda.add(textTelefono);	
-		izquierda.add(botonRegistro);
+		
 		abajo.add(botonAtras);
+		abajo.add(new JLabel("                              "));
+		abajo.add(botonRegistro);
 		
 		
 		
