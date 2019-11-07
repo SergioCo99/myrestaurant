@@ -24,7 +24,10 @@ public class VentanaRegistro extends JFrame{
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		
+		ImagenRegistro v = new ImagenRegistro();
+		v.setBorder(new EmptyBorder(5, 5, 5, 5));
+		v.setLayout(new BorderLayout(0, 0));
+		setContentPane(v);
 		
 		JPanel izquierda = new JPanel(new GridLayout(9,2));
 		JPanel derecha = new JPanel();
@@ -33,6 +36,12 @@ public class VentanaRegistro extends JFrame{
 		
 		JPanel abajoDerecha = new JPanel();
 		abajoDerecha.add(abajo,derecha);
+		// set panel colors
+		izquierda.setOpaque(false);
+		derecha.setOpaque(false);
+		arriba.setOpaque(false);
+		abajo.setOpaque(false);
+		abajoDerecha.setOpaque(false);
 		
 		Container cp = this.getContentPane();
 		
@@ -47,11 +56,14 @@ public class VentanaRegistro extends JFrame{
 		
 
 		JRadioButton usuario = new JRadioButton("Usuario");
+		usuario.setOpaque(false);
 		JRadioButton gestor = new JRadioButton("Administrador");
+		gestor.setOpaque(false);
 
 		JPanel panelTipo = new JPanel();
 		panelTipo.add(usuario);
 		panelTipo.add(gestor);
+		panelTipo.setOpaque(false);
 		
 		
 		ButtonGroup grupo = new ButtonGroup();
@@ -79,6 +91,7 @@ public class VentanaRegistro extends JFrame{
 				
 			}
 		});
+		
 		JButton botonAtras = new JButton("Atras");
 		botonAtras.addActionListener(new ActionListener() {
 			
