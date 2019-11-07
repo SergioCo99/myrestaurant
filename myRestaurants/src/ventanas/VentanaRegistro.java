@@ -26,9 +26,9 @@ public class VentanaRegistro extends JFrame{
 		setBounds(100, 100, 450, 300);
 		
 		
-		JPanel izquierda = new JPanel(new GridLayout(9,3));
+		JPanel izquierda = new JPanel(new GridLayout(9,2));
 		JPanel derecha = new JPanel();
-		JPanel arriba = new JPanel(new GridLayout(3,9));
+		JPanel arriba = new JPanel(new GridLayout(2,9));
 		JPanel abajo = new JPanel();
 		
 		JPanel abajoDerecha = new JPanel();
@@ -42,7 +42,7 @@ public class VentanaRegistro extends JFrame{
 		cp.add(arriba, BorderLayout.NORTH);
 		cp.add(abajo, BorderLayout.SOUTH);
 		cp.add(abajoDerecha);
-		cp.setBounds(0, 0, 10, 5);
+		
 	
 		
 
