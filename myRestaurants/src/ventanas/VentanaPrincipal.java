@@ -10,13 +10,22 @@ public class VentanaPrincipal {
 		
     public static void main(String[] args) {
   
-       VentanaInicio v = new VentanaInicio();
+        VentanaInicio v = new VentanaInicio();
         v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         v.setVisible(true);
         
         VentanaRegistro v1 = new VentanaRegistro();
         v1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         v1.setVisible(true);
+        
+        VInicSesUsu v2 = new VInicSesUsu();
+        v2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        v2.setVisible(true);
+       
+        VInicSesAdm v3 = new VInicSesAdm();
+        v3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        v3.setVisible(true);
+
      }
  
 }

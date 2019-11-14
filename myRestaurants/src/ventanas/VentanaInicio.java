@@ -62,6 +62,33 @@ public class VentanaInicio extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//hacer frame visible
 		setVisible(true);
+		
+		Jbt.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VInicSesAdm v1 = new VInicSesAdm();
+				v1.setSize(1000, 600);
+				v1.setVisible(true);
+				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				v1.setTitle("MyRestaurant");
+				dispose();				
+			}});
+		Jbt2.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				VInicSesUsu v1 = new VInicSesUsu();
+				v1.setSize(1000, 600);
+				v1.setVisible(true);
+				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				v1.setTitle("MyRestaurant");
+				dispose();
+			}
+		}
+		);
+	
+		
 		Hscr.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e) 
