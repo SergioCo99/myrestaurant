@@ -1,4 +1,4 @@
-package src.Alimentacion;
+package Alimentacion;
 
 public class Alimentacion extends Plato{
 
