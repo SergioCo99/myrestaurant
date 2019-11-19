@@ -1,4 +1,4 @@
-package Alimentacion;
+package src.Alimentacion;
 
 public class Alimentacion extends Plato{
 
@@ -9,12 +9,8 @@ protected int numeroPlato;
 	
 	}
 
-	public Alimentacion(Alimentacion a) {
-		super(a);
-		this.numeroPlato = a.numeroPlato;
-	}
 
-	public Alimentacion( String nombre, double precio, int numeroPlato) {
+	public Alimentacion(String nombre, double precio, int numeroPlato) {
 		super(nombre, precio);
 		this.numeroPlato = numeroPlato;
 	}
