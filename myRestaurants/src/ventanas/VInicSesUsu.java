@@ -57,8 +57,12 @@ public class VInicSesUsu extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				VentanaMenu v = new VentanaMenu();
+				v.setSize(1000, 600);
+				v.setVisible(true);
+				v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				v.setTitle("MyRestaurant");
+				dispose();				
 			}
 		});
 		

@@ -87,7 +87,8 @@ public class VentanaRegistro extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				JOptionPane.showMessageDialog(rootPane, "Cuenta registrada correctamente.\n"
+						+"Vuelva a la página principal para iniciar sesión.");
 				
 			}
 		});

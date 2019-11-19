@@ -1,6 +1,9 @@
 package usuario;
 
 public class Usuario {
+	private static int contador = 0;
+	
+	private int id_usuario;
 	private String nombre;
 	private String apellidos;
 	private String nombreUsuario;
@@ -14,6 +17,8 @@ public class Usuario {
 	public Usuario(String nombre, String apellidos, String nombreUsuario, String contrasenya, int telefono,
 			 String direccion, TipoUsuario tipo) {
 		super();
+		this.id_usuario = contador;
+		contador++;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.nombreUsuario = nombreUsuario;
@@ -25,6 +30,8 @@ public class Usuario {
 	}
 	public Usuario() {
 		super();
+		this.id_usuario = contador;
+		contador++;
 		this.nombre = "";
 		this.apellidos = "";
 		this.nombreUsuario = "";
@@ -33,6 +40,14 @@ public class Usuario {
 		this.direccion = "";
 		this.tipo = null;
 	}
+	public int getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(int id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -77,7 +92,7 @@ public class Usuario {
 	}
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", nombreUsuario=" + nombreUsuario
+		return "Usuario [id_usuario=" + id_usuario + ",=" + nombre + ", apellidos=" + apellidos + ", nombreUsuario=" + nombreUsuario
 				+ ", contrasenya=" + contrasenya + ", telefono=" + telefono + ", direccion=" + direccion + ", tipo="
 				+ tipo + "]";
 	}
