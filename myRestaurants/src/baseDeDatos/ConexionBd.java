@@ -3,6 +3,7 @@ package baseDeDatos;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
 
 public class ConexionBd {
 	
@@ -15,7 +16,7 @@ public class ConexionBd {
 		try {
 			Class.forName(CONTROLADOR);//com.mysql.jdbc.Driver <-  el que pone en la web, pero eclipse me recomienda utilizar este.	
 		} catch (ClassNotFoundException e) {
-			System.out.println("ERROR al cargar el controlador!");
+			TestConexion.BDLogger.log(Level.INFO, "ERROR al cargar el controlador!");
 			e.printStackTrace();
 		}
 	}
@@ -24,16 +25,12 @@ public class ConexionBd {
 		Connection conexion = null;
 		try {
 			conexion = DriverManager.getConnection(URL, USUARIO, CLAVE);
-			System.out.println("Conexion OK");
+			TestConexion.BDLogger.log(Level.INFO, "Te has conectado");
 		}catch(SQLException e) {
-			System.out.println("ERROR en la conexion!");
+			TestConexion.BDLogger.log(Level.INFO, "ERROR en la conexion!");
 			e.printStackTrace();
 		}
 		return conexion;
 	}
 	
-	
-	public static void main(String[] args) {
-		
-	}
 }
