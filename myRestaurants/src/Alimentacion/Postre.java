@@ -1,6 +1,7 @@
 package Alimentacion;
 
 public class Postre {
+	
 	protected String nombrePostre;
 	protected int precioPostre;
 	

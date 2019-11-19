@@ -12,12 +12,7 @@ public class Plato {
 		this.precioPlato = 0;
 		
 	}
-	public Plato (Plato a ) {
-		
-		this.nombrePlato = a.nombrePlato;
-		this.precioPlato = a.precioPlato;
-		
-	}
+
 	public Plato( String nombre,double precio ) {
 		super();
 		this.nombrePlato = nombrePlato;
