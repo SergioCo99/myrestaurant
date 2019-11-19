@@ -13,7 +13,7 @@ public class ConexionBd {
 	
 	static {
 		try {
-			Class.forName(CONTROLADOR);//com.mysql.jdbc.Driver <- este es el que pone en la web, pero eclipse me recomienda utilizar este.	
+			Class.forName(CONTROLADOR);//com.mysql.jdbc.Driver <-  el que pone en la web, pero eclipse me recomienda utilizar este.	
 		} catch (ClassNotFoundException e) {
 			System.out.println("ERROR al cargar el controlador!");
 			e.printStackTrace();
