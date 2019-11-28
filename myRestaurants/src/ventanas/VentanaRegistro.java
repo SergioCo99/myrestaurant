@@ -108,7 +108,6 @@ public class VentanaRegistro extends JFrame{
 			}
 		});
 		
-		
 		izquierda.add(new JLabel("                    Tipo de usuario:"));
 		izquierda.add(panelTipo);
 		izquierda.add(new JLabel("                    Nombre:"));
