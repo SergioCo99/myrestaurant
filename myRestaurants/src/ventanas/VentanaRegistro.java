@@ -8,11 +8,9 @@ import java.awt.event.*;
 /**/
 public class VentanaRegistro extends JFrame{
 	private JTextField textNombre;
-	private JTextField textApellidos;
 	private JTextField textUsuario;
 	private JTextField textCorreo;
-	private JPasswordField textContrasenya;
-	private JPasswordField textConfirmarContrasenya;
+	private JTextField textContrasenya;
 	private JTextField textTelefono;
 	private JRadioButton usuario;
 	private JRadioButton gestor;
@@ -74,23 +72,59 @@ public class VentanaRegistro extends JFrame{
 		textNombre = new JTextField();
 		
 		//textNombre.setBounds(300, 300, 10, 5);
-		textApellidos = new JTextField();
+
 		textUsuario = new JTextField();
 		textCorreo = new JTextField();
-		textContrasenya = new JPasswordField();
-		textConfirmarContrasenya = new JPasswordField();
+		textContrasenya = new JTextField();
+	    JPasswordField contrasenya = new JPasswordField();
+	    contrasenya.setEchoChar('*');
+	    if(textContrasenya.getText() != contrasenya.getText()) {
+	    	System.out.println("Tiene que ser lo mismo");//Arreglar
+	    }
+	    	
+	    	
+	    
 		textTelefono = new JTextField();
+		
 		
 		
 		JButton botonRegistro = new JButton("Registrarse ");
 		botonRegistro.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(rootPane, "Cuenta registrada correctamente.\n"
-						+"Vuelva a la página principal para iniciar sesión.");
+				public void actionPerformed(ActionEvent e) {
+					String crearNombre = textNombre.getText();
+					String crearUsuario = textUsuario.getText();
+					String crearCorreo = textUsuario.getText();
+					char[] crearContrasenya = textContrasenya.getText().toCharArray();
+					String crearTelefono = textTelefono.getText();
+
+					if (crearNombre.matches("^[a-zA-Z]*$") && !crearNombre.isEmpty()&& crearCorreo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" // Dos lineas para validar si es
+							+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && !crearCorreo.isEmpty() && !crearContrasenya.equals("") && crearTelefono.matches("^[0-9]*$")){
+						VentanaMenu vM = new VentanaMenu();
+						vM.setSize(1000, 600);
+						v.setVisible(true);
+						vM.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+						vM.setTitle("Menú");
+						dispose();
+		
+						System.out.println("Nombre:" + crearNombre + ", Usuario:" + crearUsuario + ", Correo:" + crearCorreo  + ", Telefono:" + crearTelefono); 
+						
+					} else if (!crearNombre.matches("^[a-zA-Z]*$") || crearNombre.isEmpty()) {
+						System.out.println("Nombre:" + crearNombre+ " Nombre no valido");
+					} else if (!crearCorreo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 																	
+							+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") 
+							|| crearCorreo.isEmpty()) {
+						System.out.println("Correo:" + crearCorreo + "Correo no valido");
+					} else if (crearContrasenya.equals("")) {
+						System.out.println("Contrasenya:" + crearContrasenya + " Contraseña no valida");
+					} else if(!crearTelefono.matches("^[0-9]*$")|| crearTelefono.isEmpty()) {
+						System.out.println("Telefono:" + crearTelefono + " Telefono no valido");
+					}
+				}
 				
-			}
+			
+	
 		});
 		
 		JButton botonAtras = new JButton("Atras");
@@ -112,16 +146,12 @@ public class VentanaRegistro extends JFrame{
 		izquierda.add(panelTipo);
 		izquierda.add(new JLabel("                    Nombre:"));
 		izquierda.add(textNombre);
-		izquierda.add(new JLabel("                    Apellidos:"));
-		izquierda.add(textApellidos);
 		izquierda.add(new JLabel("                    Usuario:"));
 		izquierda.add(textUsuario);
 		izquierda.add(new JLabel("                    Correo:"));
 		izquierda.add(textCorreo);
 		izquierda.add(new JLabel("                    Contraseña:"));
 		izquierda.add(textContrasenya);
-		izquierda.add(new JLabel("                    Confirmar Contraseña:"));
-		izquierda.add(textConfirmarContrasenya);
 		izquierda.add(new JLabel("                    Telefono:"));
 		izquierda.add(textTelefono);	
 		
