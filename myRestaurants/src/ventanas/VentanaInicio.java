@@ -71,7 +71,7 @@ public class VentanaInicio extends JFrame{
 				v1.setSize(1000, 600);
 				v1.setVisible(true);
 				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				v1.setTitle("MyRestaurant");
+				v1.setTitle("Inicio Sesión");
 				dispose();				
 			}});
 		Jbt2.addActionListener(new ActionListener()
@@ -82,7 +82,7 @@ public class VentanaInicio extends JFrame{
 				v1.setSize(1000, 600);
 				v1.setVisible(true);
 				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				v1.setTitle("MyRestaurant");
+				v1.setTitle("Inicio Sesión");
 				dispose();
 			}
 		}
@@ -97,7 +97,7 @@ public class VentanaInicio extends JFrame{
 				v1.setSize(1000, 600);
 				v1.setVisible(true);
 				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				v1.setTitle("MyRestaurant");
+				v1.setTitle("Crear Usuario");
 				dispose();
 			}
 		}
