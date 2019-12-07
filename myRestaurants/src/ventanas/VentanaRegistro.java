@@ -3,8 +3,15 @@ package ventanas;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import baseDeDatos.BdMyRestaurants;
+import baseDeDatos.ConexionBd;
+
+
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 /**/
 public class VentanaRegistro extends JFrame{
 	private JTextField textNombre;
@@ -16,6 +23,14 @@ public class VentanaRegistro extends JFrame{
 	private JRadioButton gestor;
 	private JButton botonRegistro;
 	private JButton botonAtras;
+	boolean escrito1;
+	boolean escrito2;
+	boolean escrito3;
+	boolean escrito4;
+	private JLabel errorNombre;
+	private JLabel errorEmail;
+	private JLabel errorContraseña;
+
 	
 	//Hay que vincularlo con la BD
 	public VentanaRegistro() {
@@ -69,23 +84,82 @@ public class VentanaRegistro extends JFrame{
 		grupo.add(gestor);
 
 		
-		textNombre = new JTextField();
 		
-		//textNombre.setBounds(300, 300, 10, 5);
-
-		textUsuario = new JTextField();
-		textCorreo = new JTextField();
-		textContrasenya = new JTextField();
+		
+		//Nombre
+		textNombre = new JTextField("Ejemplo: Antonio");
+		textNombre.setBounds(250, 50, 300, 30);
+		escrito1 = false;
+		textNombre.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (escrito1 == false) {
+					textNombre.setText("");
+					escrito1 = true;
+				}
+			}
+		});
+		
+		//Nombre Usuario
+		textUsuario = new JTextField("Ejemplo: Antonio99");
+		textNombre.setBounds(250, 50, 300, 30);
+		escrito2 = false;
+		textUsuario.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (escrito2 == false) {
+					textUsuario.setText("");
+					escrito2 = true;
+				}
+			}
+		});
+		
+		//Email
+		textCorreo = new JTextField("Ejemplo: antonio@gmail.com");
+		textCorreo.setBounds(250, 125, 300, 30);
+		escrito3 = false;
+		textCorreo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (escrito3 == false) {
+					textCorreo.setText("");
+					escrito3 = true;
+				}
+			}
+		});
+		
+		//Contraseña
+		textContrasenya = new JTextField("");
 	    JPasswordField contrasenya = new JPasswordField();
 	    contrasenya.setEchoChar('*');
-	    if(textContrasenya.getText() != contrasenya.getText()) {
-	    	System.out.println("Tiene que ser lo mismo");//Arreglar
-	    }
-	    	
-	    	
-	    
-		textTelefono = new JTextField();
+		textContrasenya.setBounds(250, 200, 300, 30);
+
+		//Teléfono
+		textTelefono = new JTextField("Ejemplo: 600 000 000");
+		textTelefono.setBounds(250, 125, 300, 30);
+		escrito4 = false;
+		textTelefono.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (escrito4 == false) {
+					textTelefono.setText("");
+					escrito4 = true;
+				}
+			}
+		});
 		
+		//Errores de registro
+		errorNombre = new JLabel();
+		errorNombre.setBounds(250, 80, 150, 30);
+		errorNombre.setForeground(Color.RED);
+
+		errorEmail = new JLabel();
+		errorEmail.setBounds(250, 155, 150, 30);
+		errorEmail.setForeground(Color.RED);
+
+		errorContraseña = new JLabel();
+		errorContraseña.setBounds(250, 230, 150, 30);
+		errorContraseña.setForeground(Color.RED);
 		
 		
 		JButton botonRegistro = new JButton("Registrarse ");
@@ -95,49 +169,56 @@ public class VentanaRegistro extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					String crearNombre = textNombre.getText();
 					String crearUsuario = textUsuario.getText();
-					String crearCorreo = textUsuario.getText();
-					char[] crearContrasenya = textContrasenya.getText().toCharArray();
+					String crearCorreo = textCorreo.getText();
+					String crearContrasenya = textContrasenya.getText();
 					String crearTelefono = textTelefono.getText();
+					
+					errorNombre.setText("");
+					errorEmail.setText("");
+					errorContraseña.setText("");
+					
+										  
+					Connection conexion = BdMyRestaurants.conectar();
+					Statement st = null;
+					
+					
+					try {
+						st = conexion.createStatement();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					
 
 					if (crearNombre.matches("^[a-zA-Z]*$") && !crearNombre.isEmpty()&& crearCorreo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" // Dos lineas para validar si es
-							+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && !crearCorreo.isEmpty() && !crearContrasenya.equals("") && crearTelefono.matches("^[0-9]*$")){
-						VentanaMenu vM = new VentanaMenu();
-						vM.setSize(1000, 600);
-						v.setVisible(true);
-						vM.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-						vM.setTitle("Menú");
-						dispose();
-		
-						System.out.println("Nombre:" + crearNombre + ", Usuario:" + crearUsuario + ", Correo:" + crearCorreo  + ", Telefono:" + crearTelefono); 
-						
+							+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && !crearCorreo.isEmpty() && !crearContrasenya.isEmpty() && crearTelefono.matches("^[0-9]*$") && BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true){
+						errorNombre.setText("");
+						errorEmail.setText("");
+						errorContraseña.setText("");
 					} else if (!crearNombre.matches("^[a-zA-Z]*$") || crearNombre.isEmpty()) {
-						System.out.println("Nombre:" + crearNombre+ " Nombre no valido");
-					} else if (!crearCorreo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 																	
-							+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") 
-							|| crearCorreo.isEmpty()) {
-						System.out.println("Correo:" + crearCorreo + "Correo no valido");
-					} else if (crearContrasenya.equals("")) {
-						System.out.println("Contrasenya:" + crearContrasenya + " Contraseña no valida");
-					} else if(!crearTelefono.matches("^[0-9]*$")|| crearTelefono.isEmpty()) {
-						System.out.println("Telefono:" + crearTelefono + " Telefono no valido");
+						errorNombre.setText("Este nombre no es válido");
+					}else if (!crearCorreo.matches(
+							"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
+							|| crearCorreo.isEmpty()
+							|| BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
+						errorEmail.setText("El Email no es válido");
+					}else if (crearContrasenya.isEmpty()) {
+						errorContraseña.setText("La Contraseña no es válida");
+					}
 					}
 				}
-				
-			
-	
-		});
+			});
 		
-		JButton botonAtras = new JButton("Atras");
-		botonAtras.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				VentanaInicio v = new VentanaInicio();
-				v.setSize(1000, 600);
-				v.setVisible(true);
-				v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				v.setTitle("MyRestaurant");
-				dispose();
+		
+			JButton botonAtras = new JButton("Atras");
+			botonAtras.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					VentanaInicio v = new VentanaInicio();
+					v.setSize(1000, 600);
+					v.setVisible(true);
+					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					v.setTitle("MyRestaurant");
+					dispose();
 				
 			}
 		});
@@ -171,6 +252,7 @@ public class VentanaRegistro extends JFrame{
 */
 	
 	}
+	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			

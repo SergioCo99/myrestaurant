@@ -1,6 +1,10 @@
 package ventanas;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -11,15 +15,21 @@ import javax.swing.border.EmptyBorder;
 public class VentanaMenu extends JFrame{
 	private static final long serialVersionUID = 1L;
 
+	JPanel jp;
+	
 	public VentanaMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLayout(new GridLayout(1,2));
 		setBounds(100, 100, 450, 300);
 		ImagenMenu v = new ImagenMenu();
 		v.setBorder(new EmptyBorder(5, 5, 5, 5));
 		v.setLayout(new BorderLayout(0, 0));
 		setContentPane(v);
 		
-		agregarmenu();				
+		jp = new JPanel();
+		
+		agregarmenu();		
+		panelesrestaurantes();
 	}
 	public void agregarmenu(){
 		  JMenuBar barra=new JMenuBar();
@@ -37,6 +47,7 @@ public class VentanaMenu extends JFrame{
 		  ayuda.add(Acercade);
 		  setJMenuBar(barra);
 		  
+		 
 		  //Estaría bien hacer esto
 		  //barra.add(new JTextField("Hola, "+ nombreUsuario));
 		  
@@ -73,7 +84,31 @@ public class VentanaMenu extends JFrame{
 				
 			}));
 		 }
+	public void panelesrestaurantes() {
+		/*JPanel panel = new JPanel();
 		
+		this.setSize(50, 25);
+		panel.setBackground(Color.WHITE);
+		this.getContentPane().add(panel);
+	*/
+		 //panel de intentos
+		
+		JPanel panelIzq = new JPanel();
+	    panelIzq.setSize(500,470);
+	    panelIzq.setLayout(new GridLayout(4,1));
+	        
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+        panel.setSize(500,117);
+        panel.setBackground(Color.lightGray);
+		this.getContentPane().add(panel);
+        panelIzq.add(panel);
+
+		
+		
+	}
+	
+	
 	
 	
 	

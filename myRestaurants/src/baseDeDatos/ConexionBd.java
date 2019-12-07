@@ -21,7 +21,7 @@ public class ConexionBd {
 		}
 	}
 	
-	public Connection conectar() {
+	public static Connection conectar() {
 		Connection conexion = null;
 		try {
 			conexion = DriverManager.getConnection(URL, USUARIO, CLAVE);

@@ -11,6 +11,11 @@ import javax.swing.JOptionPane;
 import usuario.TipoUsuario;
 
 public class BdMyRestaurants {
+	
+	private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
+	private static final String URL = "jdbc:mysql://localhost:3306/bd_ejemplo";
+	private static final String USUARIO = "root";
+	private static final String CLAVE = "Portu129";
 
 	public static void CrearUsuario(int id_usuario, String nombre, String apellidos, String nombre_usuario, String contrasenya, 
 			int telefono, TipoUsuario tipo) {
