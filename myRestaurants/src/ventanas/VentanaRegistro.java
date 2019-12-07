@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import baseDeDatos.BdMyRestaurants;
-import baseDeDatos.ConexionBd;
+
 
 
 import java.awt.*;
@@ -12,6 +12,7 @@ import java.awt.event.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
 /**/
 public class VentanaRegistro extends JFrame{
 	private JTextField textNombre;
@@ -30,6 +31,7 @@ public class VentanaRegistro extends JFrame{
 	private JLabel errorNombre;
 	private JLabel errorEmail;
 	private JLabel errorContraseña;
+	public static Logger BDLogger;
 
 	
 	//Hay que vincularlo con la BD

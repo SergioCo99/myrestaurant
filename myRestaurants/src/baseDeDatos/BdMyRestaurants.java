@@ -1,22 +1,47 @@
 package baseDeDatos;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
 
 import javax.swing.JOptionPane;
 
 import usuario.TipoUsuario;
 
 public class BdMyRestaurants {
-	
+	//NO SE COMO COMPARAR SI ES GESTOR O ES USUARIO estaría bien hacerlo
 	private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://localhost:3306/bd_ejemplo";
 	private static final String USUARIO = "root";
 	private static final String CLAVE = "Portu129";
 
+	public static Connection conectar() {
+		try {
+			Class.forName(CONTROLADOR);
+			Connection conexion = DriverManager.getConnection(URL, USUARIO, CLAVE);
+			TestConexion.BDLogger.log(Level.INFO, "Te has conectado");
+		}catch(ClassNotFoundException | SQLException e) {
+			ventanas.VentanaRegistro.BDLogger.log(Level.INFO, "ERROR en la conexion!",e);
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static void cerrarBD(final Connection con, final Statement st) {
+		try {
+			if (st != null)
+				st.close();
+			if (con != null)
+				con.close();
+		} catch (SQLException e) {
+			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error al cerrar la base de datos.", e);
+			e.printStackTrace();
+		}
+	}
 	public static void CrearUsuario(int id_usuario, String nombre, String apellidos, String nombre_usuario, String contrasenya, 
 			int telefono, TipoUsuario tipo) {
 
@@ -35,7 +60,7 @@ public class BdMyRestaurants {
 					"INSERT INTO usuario(id_usuario, nombre, apellidos, nombre_usuario, contrasenya, telefono, tipo) VALUES(?,?,?,?,?,?)");
 
 			ps.setString(1, nombre_usuario);
-			// ps.setString(2, txtCrearCorreo.getText());
+			
 
 			int res = ps.executeUpdate();
 
@@ -66,4 +91,87 @@ public class BdMyRestaurants {
 			}
 		}
 	}
+	public static boolean logIn(Statement st, String user, String passw) {
+		String SentSQL = "select * from usuario where correo = '" + user + "' and contrasena = '" + passw + "'";
+		try {
+			ResultSet rs = st.executeQuery(SentSQL);
+			rs.next();
+
+			String a = rs.getString("contrasena");
+			if (a.equals(passw)) {
+				System.out.println(SentSQL);
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error logIn\n" + SentSQL, e);
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+	
+	public static boolean existeUsuario(Statement st, String corr) {
+		String SentSQL = "select correo from usuario where correo = " + "'" + corr + "';";
+		System.out.println(SentSQL);
+
+		try {
+			ResultSet rs = st.executeQuery(SentSQL);
+
+			rs.next();
+
+			String b = rs.getString("correo");
+			System.out.println(b);
+			if (b.equals(corr)) {
+				System.out.println("Usuario existente");
+				return false;
+			} else {
+				System.out.println("Usuario no existente");
+				return true;
+			}
+
+		} catch (SQLException e) {
+			System.out.println("catch de -> BdMyRestaurants.existeUsuario, por lo tanto, el usuario no existe");
+			return true;
+		}
+	}
+	public static void nuevoUsuario(Statement st, String nom, String nom_usu, String corr, TipoUsuario tipo, String contr) {
+		String SentSQL = "insert into usuario(nombre,nom_usuario,correo,contrasena,telefono,tipo) values('" + nom
+				+ "','" + nom_usu +"," + corr + "'," + tipo + "," + contr + ");";
+		System.out.println(SentSQL);
+		try {
+			st.executeUpdate(SentSQL);
+		} catch (SQLException e) {
+			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error nuevoUsuario\n" + SentSQL, e);
+			e.printStackTrace();
+		}
+	}
+	public static void eliminarUsuario(Statement st, String corr) {
+		String SentSQL = "delete from usuario where correo = '" + corr + "';";
+		System.out.println(SentSQL);
+		try {
+			st.executeUpdate(SentSQL);
+		} catch (SQLException e) {
+			System.out.println(e);
+			System.out.println("Catch BdMyRestaurants.eliminarUsuario");
+			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error eliminarUsuario\n" + SentSQL, e);
+			e.printStackTrace();
+		}
+	}
+	public static void cambiarContraseña(Statement st, String passw, String corr) {
+		String SentSQL = "UPDATE usuario SET contrasena = '" + passw + "' WHERE correo = '" + corr + "';";
+		System.out.println(SentSQL);
+		try {
+			st.executeUpdate(SentSQL);
+		} catch (SQLException e) {
+			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error cambiarContraseña\n" + SentSQL, e);
+			e.printStackTrace();
+		}
+	}
+	
 }
+
+
+
+
