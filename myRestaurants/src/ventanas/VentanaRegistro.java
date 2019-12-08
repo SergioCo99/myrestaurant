@@ -18,7 +18,7 @@ public class VentanaRegistro extends JFrame{
 	private JTextField textNombre;
 	private JTextField textUsuario;
 	private JTextField textCorreo;
-	private JTextField textContrasenya;
+	private JPasswordField textContrasenya;
 	private JTextField textTelefono;
 	private JRadioButton usuario;
 	private JRadioButton gestor;
@@ -131,7 +131,7 @@ public class VentanaRegistro extends JFrame{
 		});
 		
 		//Contraseña
-		textContrasenya = new JTextField("");
+		textContrasenya = new JPasswordField("");
 	    JPasswordField contrasenya = new JPasswordField();
 	    contrasenya.setEchoChar('*');
 		textContrasenya.setBounds(250, 200, 300, 30);

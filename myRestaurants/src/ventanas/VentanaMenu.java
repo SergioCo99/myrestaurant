@@ -2,11 +2,16 @@ package ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -15,7 +20,9 @@ import javax.swing.border.EmptyBorder;
 public class VentanaMenu extends JFrame{
 	private static final long serialVersionUID = 1L;
 
-	JPanel jp;
+	private JLabel relojito;
+	public final static int ONE_SECOND = 1000;
+	private final SimpleDateFormat clockFormat = new SimpleDateFormat("H:mm:ss");
 	
 	public VentanaMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,10 +32,11 @@ public class VentanaMenu extends JFrame{
 		v.setBorder(new EmptyBorder(5, 5, 5, 5));
 		v.setLayout(new BorderLayout(0, 0));
 		setContentPane(v);
+       
 		
-		jp = new JPanel();
 		
-		agregarmenu();		
+		agregarmenu();	
+		panelbuscar();
 		panelesrestaurantes();
 	}
 	public void agregarmenu(){
@@ -46,7 +54,22 @@ public class VentanaMenu extends JFrame{
 		  archivo.add(guardar);
 		  ayuda.add(Acercade);
 		  setJMenuBar(barra);
-		  
+		// Reloj
+		  JMenu vacio=new JMenu("                                                                                                                                                                                                                       "
+		  		+ "                                                 ");
+		  barra.add(vacio);
+		  JLabel relojito = new JLabel();
+		  relojito.setFont(new Font(relojito.getFont().getName(), Font.BOLD, 15));
+		  relojito.setBounds(640, 0, 100, 20);
+		  barra.add(relojito);
+			Timer timer = new Timer(ONE_SECOND, new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					relojito.setText(clockFormat.format(new Date()));
+					relojito.repaint();
+				}
+			});
+			relojito.setText(clockFormat.format(new Date()));
+			timer.start();
 		 
 		  //Estaría bien hacer esto
 		  //barra.add(new JTextField("Hola, "+ nombreUsuario));
@@ -84,6 +107,27 @@ public class VentanaMenu extends JFrame{
 				
 			}));
 		 }
+
+	public void panelbuscar() {
+		JPanel izquierda = new JPanel(new GridLayout(9,2));
+		izquierda.setOpaque(false);
+		Container cp = this.getContentPane();
+		cp.setLayout(new BorderLayout());
+		cp.add(izquierda, BorderLayout.WEST);
+		izquierda.add(new JLabel("                                "));
+		izquierda.add(new JLabel("                                "));
+		izquierda.add(new JLabel("                                "));
+		izquierda.add(new JLabel("                                "));
+		izquierda.add(new JLabel("                                "));
+		izquierda.add(new JLabel("                                "));
+		
+		
+
+		
+	
+	}
+	
+	
 	public void panelesrestaurantes() {
 		/*JPanel panel = new JPanel();
 		
@@ -107,19 +151,6 @@ public class VentanaMenu extends JFrame{
 		
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
-
-
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			

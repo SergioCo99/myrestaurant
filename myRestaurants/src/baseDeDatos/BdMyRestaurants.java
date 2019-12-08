@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import usuario.TipoUsuario;
 
 public class BdMyRestaurants {
+	
 	//NO SE COMO COMPARAR SI ES GESTOR O ES USUARIO estaría bien hacerlo
 	private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://localhost:3306/bd_ejemplo";
