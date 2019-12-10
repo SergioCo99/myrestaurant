@@ -23,17 +23,21 @@ public class VentanaMenu extends JFrame{
 	private JLabel relojito;
 	public final static int ONE_SECOND = 1000;
 	private final SimpleDateFormat clockFormat = new SimpleDateFormat("H:mm:ss");
-	
+	private JCheckBox comidaChina;
+	private JCheckBox comidaCasera;
+	private JCheckBox comidaHamburgueseria;
+	private JCheckBox comidaPizzeria;
+	private JCheckBox comidaSidreria;
+	private JCheckBox comidaChuletas;
+
 	public VentanaMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setLayout(new GridLayout(1,2));
+		this.setLayout(new GridLayout(1,1));
 		setBounds(100, 100, 450, 300);
 		ImagenMenu v = new ImagenMenu();
 		v.setBorder(new EmptyBorder(5, 5, 5, 5));
 		v.setLayout(new BorderLayout(0, 0));
 		setContentPane(v);
-       
-		
 		
 		agregarmenu();	
 		panelbuscar();
@@ -54,7 +58,8 @@ public class VentanaMenu extends JFrame{
 		  archivo.add(guardar);
 		  ayuda.add(Acercade);
 		  setJMenuBar(barra);
-		// Reloj
+		
+		  // Reloj
 		  JMenu vacio=new JMenu("                                                                                                                                                                                                                       "
 		  		+ "                                                 ");
 		  barra.add(vacio);
@@ -74,6 +79,7 @@ public class VentanaMenu extends JFrame{
 		  //Estaría bien hacer esto
 		  //barra.add(new JTextField("Hola, "+ nombreUsuario));
 		  
+		  //Boton acerca de
 		  Acercade.addActionListener((new ActionListener() {
 				
 				@Override
@@ -86,6 +92,8 @@ public class VentanaMenu extends JFrame{
 					
 				}
 			}));
+		  
+		  //Boton salir
 		  salir.addActionListener((new ActionListener() {
 				
 				@Override
@@ -109,19 +117,66 @@ public class VentanaMenu extends JFrame{
 		 }
 
 	public void panelbuscar() {
-		JPanel izquierda = new JPanel(new GridLayout(9,2));
+		JPanel izquierda = new JPanel(new GridLayout(9, 2));
 		izquierda.setOpaque(false);
+		izquierda.setBackground(Color.GREEN);
 		Container cp = this.getContentPane();
 		cp.setLayout(new BorderLayout());
 		cp.add(izquierda, BorderLayout.WEST);
 		izquierda.add(new JLabel("                                "));
 		izquierda.add(new JLabel("                                "));
+		izquierda.add(new JLabel("Seleccione el tipo de comida que desea:"));
 		izquierda.add(new JLabel("                                "));
-		izquierda.add(new JLabel("                                "));
-		izquierda.add(new JLabel("                                "));
-		izquierda.add(new JLabel("                                "));
+
+		comidaChuletas = new JCheckBox("Chuletas");
+		izquierda.add(comidaChuletas);
+		comidaChuletas.setBounds(400, 210, 150, 40);
+		//comidaChuletas.setBackground(Color.RGBtoHSB(r, g, b, hsbvals));
+		comidaChuletas.setOpaque(false);
+		
+		comidaChina = new JCheckBox("China");
+		izquierda.add(comidaChina);
+		comidaChina.setBounds(200, 70, 150, 40);
+		comidaChina.setOpaque(false);
+
+
+		comidaCasera = new JCheckBox("Comida Casera");
+		izquierda.add(comidaCasera);
+		comidaCasera.setBounds(400, 70, 150, 40);
+		comidaCasera.setOpaque(false);
+
+		
+		comidaHamburgueseria = new JCheckBox("Hamburguesas");
+		izquierda.add(comidaHamburgueseria);
+		comidaHamburgueseria.setBounds(200, 140, 150, 40);
+		comidaHamburgueseria.setOpaque(false);
+
+	
+		comidaPizzeria = new JCheckBox("Pizza");
+		izquierda.add(comidaPizzeria);
+		comidaPizzeria.setBounds(400, 140, 150, 40);
+		comidaPizzeria.setOpaque(false);
+
+		comidaSidreria = new JCheckBox("Sidreria");
+		izquierda.add(comidaSidreria);
+		comidaSidreria.setBounds(200, 210, 150, 40);
+		comidaSidreria.setOpaque(false);
+		
+		izquierda.add(new JLabel("Rango de precio:"));
+		izquierda.add(new JLabel("                      "));
+
+		//izquierda.add(new JButton("Buscar"));
+		
+		JSlider sliderPrecio = new JSlider(JSlider.HORIZONTAL, 0, 70, 25);
+		sliderPrecio.setInverted(false); //se invierte el relleno del JSlider (desde donde comienza)
+		sliderPrecio.setPaintTicks(true); //las rayitas que marcan los números
+		sliderPrecio.setMajorTickSpacing(10); // de cuanto en cuanto los números en el slider
+		sliderPrecio.setMinorTickSpacing(5); //las rayitas de cuanto en cuanto
+		sliderPrecio.setPaintLabels(true); //si se ve los números del slider
 		
 		
+		
+		izquierda.add(sliderPrecio);
 
 		
 	
