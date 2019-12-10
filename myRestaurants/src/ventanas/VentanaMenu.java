@@ -14,6 +14,8 @@ import java.util.Date;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 
 
@@ -29,7 +31,7 @@ public class VentanaMenu extends JFrame{
 	private JCheckBox comidaPizzeria;
 	private JCheckBox comidaSidreria;
 	private JCheckBox comidaChuletas;
-
+	private JButton buscar;
 	public VentanaMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new GridLayout(1,1));
@@ -175,9 +177,22 @@ public class VentanaMenu extends JFrame{
 		sliderPrecio.setPaintLabels(true); //si se ve los números del slider
 		
 		
-		
 		izquierda.add(sliderPrecio);
-
+		izquierda.add(new JLabel("                      "));
+		izquierda.add(new JLabel("                      "));
+		izquierda.add(new JLabel("                      "));
+		buscar = new JButton("Buscar");
+		buscar.setBackground(Color.ORANGE);
+		buscar.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				
+			}
+		}
+		);
+		izquierda.add(buscar);
+		
 		
 	
 	}
