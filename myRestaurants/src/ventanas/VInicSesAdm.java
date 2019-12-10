@@ -12,7 +12,7 @@ public class VInicSesAdm extends JFrame{
 
 	private JTextField textCorreo;
 	private JPasswordField textContrasenya;
-	
+	private boolean escrito1;
 	
 	public VInicSesAdm() {
 		
@@ -48,7 +48,18 @@ public class VInicSesAdm extends JFrame{
 		cp.add(abajoDerecha);
 		
 		
-		textCorreo = new JTextField();
+		textCorreo = new JTextField("Ejemplo: antonio@gmail.com");
+		textCorreo.setBounds(250, 50, 300, 30);
+		escrito1 = false;
+		textCorreo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (escrito1 == false) {
+					textCorreo.setText("");
+					escrito1 = true;
+				}
+			}
+		});
 		textContrasenya = new JPasswordField();
 		
 

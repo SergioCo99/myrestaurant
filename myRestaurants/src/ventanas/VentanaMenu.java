@@ -50,14 +50,12 @@ public class VentanaMenu extends JFrame{
 		  JMenu archivo=new JMenu("Opciones");
 		  JMenu ayuda=new JMenu("Ayuda");
 		  JMenuItem salir=new JMenuItem("Salir");
-		  JMenuItem abrir=new JMenuItem("Abrir");
-		  JMenuItem guardar=new JMenuItem("Guardar");
+		  JMenuItem entrarAdmin=new JMenuItem("Entrar como Admin");
 		  JMenuItem Acercade=new JMenuItem("Acerca de la aplicación");
 		  barra.add(archivo);
 		  barra.add(ayuda);
 		  archivo.add(salir);
-		  archivo.add(abrir);
-		  archivo.add(guardar);
+		  archivo.add(entrarAdmin);
 		  ayuda.add(Acercade);
 		  setJMenuBar(barra);
 		
@@ -90,7 +88,7 @@ public class VentanaMenu extends JFrame{
 							+ "Jokin Martin \n"
 							+ "Sergio López \n"
 							+ "Sergio Cogollos \n"
-							+ "Alumnos de 3º de Ingeniería Inforamtica en la Universidad de Deusto");
+							+ "Alumnos de 3º de Ingeniería Informática en la Universidad de Deusto");
 					
 				}
 			}));
@@ -104,6 +102,28 @@ public class VentanaMenu extends JFrame{
 
 						if(dialogButton == JOptionPane.YES_OPTION) {
 							VentanaInicio v = new VentanaInicio();
+							v.setSize(1000, 600);
+							v.setVisible(true);
+							v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+							v.setTitle("MyRestaurant");
+							dispose();
+						}else {
+							remove(dialogButton);
+							
+						}
+				}
+				
+			}));
+		  
+		  entrarAdmin.addActionListener((new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					int dialogButton = JOptionPane.showConfirmDialog(null, "Vas a cerrar sesión y entrar con una cuenta de administrador\n"
+							+ "                                   ¿Estás seguro?", "Administrador", JOptionPane.YES_NO_OPTION);
+
+						if(dialogButton == JOptionPane.YES_OPTION) {
+							VInicSesAdm v = new VInicSesAdm();
 							v.setSize(1000, 600);
 							v.setVisible(true);
 							v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -177,7 +197,6 @@ public class VentanaMenu extends JFrame{
 		sliderPrecio.setMajorTickSpacing(10); // de cuanto en cuanto los números en el slider
 		sliderPrecio.setMinorTickSpacing(5); //las rayitas de cuanto en cuanto
 		sliderPrecio.setPaintLabels(true); //si se ve los números del slider
-		
 		
 		izquierda.add(sliderPrecio);
 		izquierda.add(new JLabel("                      "));
