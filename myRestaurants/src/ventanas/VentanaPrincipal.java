@@ -24,6 +24,9 @@ public class VentanaPrincipal {
         VInicSesAdm v3 = new VInicSesAdm();
         v3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        VentanaMenu v4 = new VentanaMenu();
+        v4.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
 
      }
  

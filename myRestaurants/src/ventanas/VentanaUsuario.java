@@ -8,27 +8,24 @@ public class VentanaUsuario extends JFrame{
 
 	protected static final String ACEPTAR = "Aceptar";
 	protected static final String CANCELAR = "Cancelar";
-    protected static final String stringNombre		= "Nombre: ";
-	protected static final String stringApellidos	= "Apellidos: ";
-	protected static final String stringNombreUsuario			= "Usuario: ";
+	protected static final String stringNombreUsuario = "Usuario: ";
+	protected static final String stringCorreo = "Correo: ";
 	protected static final String stringContrasenya	= "Contrasenya: ";
-	protected static final String stringTelefono		= "Telefono: ";
+	protected static final String stringTelefono = "Telefono:";
 	protected static final String stringDireccion	= "Direccion: ";
 	protected static final String stringTipo			= "Tipo: ";
 	
 	
 	
 	private	JPanel Panel;
-	private	JTextField Nombre;
-	private	JTextField Apellidos;
 	private	JTextField nombreUsuario;
+	private	JTextField correo;
 	private JTextField contrasenya;
 	private	JTextField telefono;
 	private	JTextField direccion;
 	private JComboBox tipo;
-	private JLabel Lnombre;
-	private JLabel Lapellidos;
 	private JLabel LnombreUsuario;
+	private JLabel Lcorreo;
 	private JLabel Lcontrasenya;
 	private JLabel Ltelefono;
 	private JLabel Ldireccion;
@@ -40,9 +37,8 @@ public class VentanaUsuario extends JFrame{
 		
 		setLayout(new BorderLayout());
 		
-		Nombre = new JTextField(50);
-		Apellidos = new JTextField(50);
 		nombreUsuario = new JTextField(50);
+		correo = new JTextField(50);
 		contrasenya = new JTextField(50);
 		telefono = new JTextField(50);
 		direccion = new JTextField(50);
@@ -51,12 +47,12 @@ public class VentanaUsuario extends JFrame{
 		tipo.addItem("Usuario");
 		
 		
-		Lnombre=new JLabel(stringNombre);
-		Lnombre.setLabelFor(Nombre);
-		Lapellidos=new JLabel(stringApellidos);
-		Lapellidos.setLabelFor(Apellidos);
+
+		
 		LnombreUsuario=new JLabel(stringNombreUsuario);
 		LnombreUsuario.setLabelFor(nombreUsuario);
+		Lcorreo=new JLabel(stringCorreo);
+		Lcorreo.setLabelFor(correo);
 		Lcontrasenya=new JLabel(stringContrasenya);
 		Lcontrasenya.setLabelFor(contrasenya);
 		Ltelefono=new JLabel(stringTelefono);
@@ -70,9 +66,9 @@ public class VentanaUsuario extends JFrame{
 		GridLayout gridpanel = new GridLayout();
 		GridBagConstraints c= new GridBagConstraints();
 		
-		JLabel[] labels = {Lnombre, Lapellidos, LnombreUsuario, Lcontrasenya, Ltelefono, Ldireccion };
-	    JTextField[] textFields = {Nombre,Apellidos, nombreUsuario, contrasenya, telefono, direccion};
-		addLabelTextRows(labels, textFields, gridpanel, Panel);
+		JLabel[] labels = {LnombreUsuario,Lcorreo, Lcontrasenya, Ltelefono, Ldireccion };
+	    JTextField[] textFields = {nombreUsuario,correo, contrasenya, telefono, direccion};
+		/*addLabelTextRows(labels, textFields, gridpanel, Panel);
 		
 
 
@@ -86,7 +82,7 @@ public class VentanaUsuario extends JFrame{
 				  Container c) 
 {
 		
-}
+}*/
 		this.setVisible(true);
 		this.setSize(650,300);
 		this.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );

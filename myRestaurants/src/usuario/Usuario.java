@@ -4,9 +4,8 @@ public class Usuario {
 	private static int contador = 0;
 	
 	private int id_usuario;
-	private String nombre;
-	private String apellidos;
 	private String nombreUsuario;
+	private String correo;
 	private String contrasenya;
 	private int telefono;
 	//private int tarjetaCredito;
@@ -14,13 +13,12 @@ public class Usuario {
 	private TipoUsuario tipo;
 	
 	
-	public Usuario(String nombre, String apellidos, String nombreUsuario, String contrasenya, int telefono,
+	public Usuario( String nombreUsuario, String correo, String contrasenya, int telefono,
 			 String direccion, TipoUsuario tipo) {
 		super();
 		this.id_usuario = contador;
 		contador++;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
+		this.correo = correo;
 		this.nombreUsuario = nombreUsuario;
 		this.contrasenya = contrasenya;
 		this.telefono = telefono;
@@ -32,8 +30,7 @@ public class Usuario {
 		super();
 		this.id_usuario = contador;
 		contador++;
-		this.nombre = "";
-		this.apellidos = "";
+		this.correo = "";
 		this.nombreUsuario = "";
 		this.contrasenya = "";
 		this.telefono = 0;
@@ -48,17 +45,11 @@ public class Usuario {
 		this.id_usuario = id_usuario;
 	}
 	
-	public String getNombre() {
-		return nombre;
+	public String getCorreo() {
+		return correo;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public String getApellidos() {
-		return apellidos;
-	}
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 	public String getNombreUsuario() {
 		return nombreUsuario;
@@ -92,7 +83,7 @@ public class Usuario {
 	}
 	@Override
 	public String toString() {
-		return "Usuario [id_usuario=" + id_usuario + ",=" + nombre + ", apellidos=" + apellidos + ", nombreUsuario=" + nombreUsuario
+		return "Usuario [id_usuario=" + id_usuario + ", correo=" + correo + ", nombreUsuario=" + nombreUsuario
 				+ ", contrasenya=" + contrasenya + ", telefono=" + telefono + ", direccion=" + direccion + ", tipo="
 				+ tipo + "]";
 	}

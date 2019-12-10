@@ -15,7 +15,6 @@ import java.sql.Statement;
 import java.util.logging.Logger;
 /**/
 public class VentanaRegistro extends JFrame{
-	private JTextField textNombre;
 	private JTextField textUsuario;
 	private JTextField textCorreo;
 	private JPasswordField textContrasenya;
@@ -88,23 +87,11 @@ public class VentanaRegistro extends JFrame{
 		
 		
 		
-		//Nombre
-		textNombre = new JTextField("Ejemplo: Antonio");
-		textNombre.setBounds(250, 50, 300, 30);
-		escrito1 = false;
-		textNombre.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (escrito1 == false) {
-					textNombre.setText("");
-					escrito1 = true;
-				}
-			}
-		});
+		
 		
 		//Nombre Usuario
 		textUsuario = new JTextField("Ejemplo: Antonio99");
-		textNombre.setBounds(250, 50, 300, 30);
+		textUsuario.setBounds(250, 50, 300, 30);
 		escrito2 = false;
 		textUsuario.addMouseListener(new MouseAdapter() {
 			@Override
@@ -169,7 +156,6 @@ public class VentanaRegistro extends JFrame{
 			
 			@Override
 				public void actionPerformed(ActionEvent e) {
-					String crearNombre = textNombre.getText();
 					String crearUsuario = textUsuario.getText();
 					String crearCorreo = textCorreo.getText();
 					String crearContrasenya = textContrasenya.getText();
@@ -190,23 +176,32 @@ public class VentanaRegistro extends JFrame{
 						e1.printStackTrace();
 					
 
-					if (crearNombre.matches("^[a-zA-Z]*$") && !crearNombre.isEmpty()&& crearCorreo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" // Dos lineas para validar si es
-							+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && !crearCorreo.isEmpty() && !crearContrasenya.isEmpty() && crearTelefono.matches("^[0-9]*$") && BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true){
+					if (crearCorreo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
+	+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && !crearCorreo.isEmpty() && !crearContrasenya.isEmpty() && crearTelefono.matches("^[0-9]*$") && BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true){
 						errorNombre.setText("");
 						errorEmail.setText("");
 						errorContraseña.setText("");
-					} else if (!crearNombre.matches("^[a-zA-Z]*$") || crearNombre.isEmpty()) {
+					} else if (!crearUsuario.matches("^[a-zA-Z]*$") || crearUsuario.isEmpty()) {
 						errorNombre.setText("Este nombre no es válido");
+						JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
+
 					}else if (!crearCorreo.matches(
 							"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
 							|| crearCorreo.isEmpty()
 							|| BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
 						errorEmail.setText("El Email no es válido");
+						JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
+
 					}else if (crearContrasenya.isEmpty()) {
 						errorContraseña.setText("La Contraseña no es válida");
+						JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
+
 					}
 					}
+				
 				}
+			
+			
 			});
 		
 		
@@ -227,8 +222,6 @@ public class VentanaRegistro extends JFrame{
 		
 		izquierda.add(new JLabel("                    Tipo de usuario:"));
 		izquierda.add(panelTipo);
-		izquierda.add(new JLabel("                    Nombre:"));
-		izquierda.add(textNombre);
 		izquierda.add(new JLabel("                    Usuario:"));
 		izquierda.add(textUsuario);
 		izquierda.add(new JLabel("                    Correo:"));
@@ -242,30 +235,7 @@ public class VentanaRegistro extends JFrame{
 		abajo.add(new JLabel("                              "));
 		abajo.add(botonRegistro);
 		
-		
-		
-		
-		/*
-		this.setTitle("Registro");
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.pack();
-		this.setSize(1000, 600);
-		this.setVisible(true);
-*/
 	
-	}
-	
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				new VentanaRegistro();
-
-				
-			}
-		});
 	}
 	
 }

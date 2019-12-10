@@ -16,15 +16,15 @@ public class BdMyRestaurants {
 	
 	//NO SE COMO COMPARAR SI ES GESTOR O ES USUARIO estaría bien hacerlo
 	private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
-	private static final String URL = "jdbc:mysql://localhost:3306/bd_ejemplo";
-	private static final String USUARIO = "root";
+	private static final String URL = "jdbc:mysql://localhost:3306/Modelo.mwb";//Falta meter la bd correctamente
+	private static final String USUARIO = "root";//falta la contraseña
 	private static final String CLAVE = "Portu129";
 
 	public static Connection conectar() {
 		try {
 			Class.forName(CONTROLADOR);
-			Connection conexion = DriverManager.getConnection(URL, USUARIO, CLAVE);
-			TestConexion.BDLogger.log(Level.INFO, "Te has conectado");
+			Connection conexion = DriverManager.getConnection(URL,USUARIO,CLAVE);
+			ventanas.VentanaRegistro.BDLogger.log(Level.INFO, "Te has conectado");
 		}catch(ClassNotFoundException | SQLException e) {
 			ventanas.VentanaRegistro.BDLogger.log(Level.INFO, "ERROR en la conexion!",e);
 			e.printStackTrace();
@@ -43,10 +43,10 @@ public class BdMyRestaurants {
 			e.printStackTrace();
 		}
 	}
-	public static void CrearUsuario(int id_usuario, String nombre, String apellidos, String nombre_usuario, String contrasenya, 
-			int telefono, TipoUsuario tipo) {
+	public static void CrearUsuario(int id_usuario, String nombreUsuario, String correo, String contrasenya, int telefono,
+			 String direccion, TipoUsuario tipo) {
 
-		ConexionBd conexion = new ConexionBd();
+		BdMyRestaurants conexion = new BdMyRestaurants();
 		Connection cn = null;
 		Statement stm = null;
 		ResultSet rs = null;
@@ -56,11 +56,11 @@ public class BdMyRestaurants {
 		try {
 			cn = conexion.conectar();
 			stm = cn.createStatement();
-			rs = stm.executeQuery("SELECT * FROM usuario");
+			rs = stm.executeQuery("SELECT * FROM Usuario");
 			ps = cn.prepareStatement(
-					"INSERT INTO usuario(id_usuario, nombre, apellidos, nombre_usuario, contrasenya, telefono, tipo) VALUES(?,?,?,?,?,?)");
+					"INSERT INTO Usuario(id_usuario, correo, nombreUsuario, contrasenya, direccion, telefono, tipo) VALUES(?,?,?,?,?,?)");
 
-			ps.setString(1, nombre_usuario);
+			ps.setString(1, nombreUsuario);
 			
 
 			int res = ps.executeUpdate();
@@ -93,7 +93,7 @@ public class BdMyRestaurants {
 		}
 	}
 	public static boolean logIn(Statement st, String user, String passw) {
-		String SentSQL = "select * from usuario where correo = '" + user + "' and contrasena = '" + passw + "'";
+		String SentSQL = "select * from Usuario where nombreUsuario = '" + user + "' and contrasena = '" + passw + "'";
 		try {
 			ResultSet rs = st.executeQuery(SentSQL);
 			rs.next();
@@ -113,8 +113,8 @@ public class BdMyRestaurants {
 
 	}
 	
-	public static boolean existeUsuario(Statement st, String corr) {
-		String SentSQL = "select correo from usuario where correo = " + "'" + corr + "';";
+	public static boolean existeUsuario(Statement st, String nombreUs) {
+		String SentSQL = "select nombreUsuario from Usuario where nombreUsuario = " + "'" + nombreUs + "';";
 		System.out.println(SentSQL);
 
 		try {
@@ -122,9 +122,9 @@ public class BdMyRestaurants {
 
 			rs.next();
 
-			String b = rs.getString("correo");
+			String b = rs.getString("nombreUsuario");
 			System.out.println(b);
-			if (b.equals(corr)) {
+			if (b.equals(nombreUs)) {
 				System.out.println("Usuario existente");
 				return false;
 			} else {
@@ -137,9 +137,10 @@ public class BdMyRestaurants {
 			return true;
 		}
 	}
-	public static void nuevoUsuario(Statement st, String nom, String nom_usu, String corr, TipoUsuario tipo, String contr) {
-		String SentSQL = "insert into usuario(nombre,nom_usuario,correo,contrasena,telefono,tipo) values('" + nom
-				+ "','" + nom_usu +"," + corr + "'," + tipo + "," + contr + ");";
+	public static void nuevoUsuario(Statement st,int id_us, String nombreUs, String cor, String contr, int tel,
+			 String direc, TipoUsuario tipo) {
+		String SentSQL = "insert into Usuario(id_usuario, correo, nombreUsuario, contrasenya, telefono, tipo) values('" + id_us
+				+ "','" + nombreUs +"," + cor + "'," + tel + "'," + direc + "'," + tipo + "," + contr + ");";
 		System.out.println(SentSQL);
 		try {
 			st.executeUpdate(SentSQL);
@@ -148,8 +149,8 @@ public class BdMyRestaurants {
 			e.printStackTrace();
 		}
 	}
-	public static void eliminarUsuario(Statement st, String corr) {
-		String SentSQL = "delete from usuario where correo = '" + corr + "';";
+	public static void eliminarUsuario(Statement st, String nomb_usu) {
+		String SentSQL = "delete from Usuario where nombre_usuario = '" + nomb_usu + "';";
 		System.out.println(SentSQL);
 		try {
 			st.executeUpdate(SentSQL);
@@ -160,8 +161,8 @@ public class BdMyRestaurants {
 			e.printStackTrace();
 		}
 	}
-	public static void cambiarContraseña(Statement st, String passw, String corr) {
-		String SentSQL = "UPDATE usuario SET contrasena = '" + passw + "' WHERE correo = '" + corr + "';";
+	public static void cambiarContraseña(Statement st, String passw, String nomb_usu) {
+		String SentSQL = "UPDATE usuario SET contrasenya = '" + passw + "' WHERE nombre_usuario = '" + nomb_usu + "';";
 		System.out.println(SentSQL);
 		try {
 			st.executeUpdate(SentSQL);

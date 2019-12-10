@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-12-10T09:53:12.809537100Z</date>
+  <millis>1575971592809</millis>
+  <nanos>537100</nanos>
+  <sequence>0</sequence>
+  <logger>BDLogger</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.ConexionBd</class>
+  <method>conectar</method>
+  <thread>1</thread>
+  <message>ERROR en la conexion!</message>
+</record>
+</log>
