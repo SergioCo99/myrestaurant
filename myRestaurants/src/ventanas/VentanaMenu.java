@@ -125,6 +125,8 @@ public class VentanaMenu extends JFrame{
 		Container cp = this.getContentPane();
 		cp.setLayout(new BorderLayout());
 		cp.add(izquierda, BorderLayout.WEST);
+		
+		
 		izquierda.add(new JLabel("                                "));
 		izquierda.add(new JLabel("                                "));
 		izquierda.add(new JLabel("Seleccione el tipo de comida que desea:"));
@@ -164,12 +166,12 @@ public class VentanaMenu extends JFrame{
 		comidaSidreria.setBounds(200, 210, 150, 40);
 		comidaSidreria.setOpaque(false);
 		
-		izquierda.add(new JLabel("Rango de precio:"));
+		izquierda.add(new JLabel("Precio hasta:"));
 		izquierda.add(new JLabel("                      "));
 
 		//izquierda.add(new JButton("Buscar"));
 		
-		JSlider sliderPrecio = new JSlider(JSlider.HORIZONTAL, 0, 70, 25);
+		JSlider sliderPrecio = new JSlider(JSlider.HORIZONTAL, 0, 70, 0);
 		sliderPrecio.setInverted(false); //se invierte el relleno del JSlider (desde donde comienza)
 		sliderPrecio.setPaintTicks(true); //las rayitas que marcan los números
 		sliderPrecio.setMajorTickSpacing(10); // de cuanto en cuanto los números en el slider
