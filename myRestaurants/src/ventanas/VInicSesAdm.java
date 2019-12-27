@@ -68,8 +68,12 @@ public class VInicSesAdm extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				VAdmin1 v = new VAdmin1();
+				v.setSize(1000, 600);
+				v.setVisible(true);
+				v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				v.setTitle("MyRestaurant");
+				dispose();
 			}
 		});
 		
