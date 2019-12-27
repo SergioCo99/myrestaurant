@@ -13,6 +13,7 @@ import java.util.Date;
 public class VAdmin1 extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
+	private JLabel relojito;
 	public final static int ONE_SECOND = 1000;
 	private final SimpleDateFormat clockFormat = new SimpleDateFormat("H:mm:ss");
 	JButton misR;
@@ -63,7 +64,12 @@ public class VAdmin1 extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-							
+				VAñadirRest v1 = new VAñadirRest();
+				v1.setSize(1000, 600);
+				v1.setVisible(true);
+				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				v1.setTitle("MyRestaurant");
+				dispose();	
 			}});
 		
 		
