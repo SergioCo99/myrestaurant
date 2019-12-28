@@ -25,7 +25,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
@@ -33,8 +35,8 @@ import javax.swing.border.EmptyBorder;
 public class VAñadirRest extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JTextField textNombreRest;
-	private JTextField textHoraApertura;
-	private JTextField textHoraCierre;
+	private JSpinner textHoraApertura;
+	private JSpinner textHoraCierre;
 	private JTextField textDireccion;
 	private JTextField textTelefono;
 	//Tipos comida
@@ -71,7 +73,7 @@ public class VAñadirRest extends JFrame {
 		setContentPane(v);
 		
 		
-		JPanel izquierda = new JPanel(new GridLayout(9,2));
+		JPanel izquierda = new JPanel(new GridLayout(14,2));
 	
 		// set panel colors
 		izquierda.setOpaque(false);
@@ -96,32 +98,18 @@ public class VAñadirRest extends JFrame {
 				}
 			}
 		});
+
+		// from 0 to 9, in 1.0 steps start value 5 
+		SpinnerNumberModel horarioHI = new SpinnerNumberModel(8.0, 8.0, 23.0, 1.0); 
 		
-		textHoraApertura = new JTextField("Ejemplo: 10:00");
-		textNombreRest.setBounds(250, 50, 300, 30);
-		escrito2 = false;
-		textHoraApertura.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (escrito2 == false) {
-					textHoraApertura.setText("");
-					escrito2 = true;
-				}
-			}
-		});
+		textHoraApertura = new JSpinner(horarioHI);
+		textHoraApertura.setBounds(250, 50, 300, 30);
 		
-		textHoraCierre = new JTextField("Ejemplo: 23:00");
+		SpinnerNumberModel horarioHF = new SpinnerNumberModel(9.0, 9.0, 23.0, 1.0); 
+
+		textHoraCierre = new JSpinner(horarioHF);
 		textHoraCierre.setBounds(250, 50, 300, 30);
-		escrito3 = false;
-		textHoraCierre.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (escrito3 == false) {
-					textHoraCierre.setText("");
-					escrito3 = true;
-				}
-			}
-		});
+		
 		
 		textDireccion = new JTextField("Ejemplo: Calle Mayor 25, Murcia");
 		textDireccion.setBounds(250, 50, 300, 30);
