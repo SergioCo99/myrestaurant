@@ -1,85 +1,75 @@
 package ventanas;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
-import java.awt.*;
-import java.awt.event.*;
-
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
 
-public class VAdmin1 extends JFrame{
-	
+
+
+public class VMisRestaurantes extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JLabel relojito;
 	public final static int ONE_SECOND = 1000;
 	private final SimpleDateFormat clockFormat = new SimpleDateFormat("H:mm:ss");
-	JButton misR;
-	JButton nuevoR;
-	
-	
-	public VAdmin1() {
+
+	public VMisRestaurantes() {
 		
+		super("Mi tabla");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		VAdmin v = new VAdmin();
+		ImagenIniSesion v = new ImagenIniSesion();
 		v.setBorder(new EmptyBorder(5, 5, 5, 5));
 		v.setLayout(new BorderLayout(0, 0));
 		setContentPane(v);
 		agregarmenu();
 		
-		misR = new JButton("Mis restaurantes");
-		nuevoR = new JButton("Nuevo restaurante");
+		DefaultTableModel modelo = new DefaultTableModel();
+		modelo.addColumn("Nombre");
+		modelo.addColumn("Horario Apertura");
+		modelo.addColumn("Horario Cierre");
+		modelo.addColumn("Dirección");
+		modelo.addColumn("Teléfono");
+		modelo.addColumn("Tipo de Comida");
 		
-		JPanel sel	= new JPanel(new FlowLayout(FlowLayout.LEFT , 200, 400));
-		JPanel sel2 = new JPanel(new FlowLayout(FlowLayout.RIGHT , 200, 400));
 		
-		sel.setOpaque(false);
-		sel2.setOpaque(false);
+		String[]p1= {"Como en Casa", "8", "23", "Calla Agapito", "900 000 000", "ComidaCasera"};
+		String[]p2= {"Paco", "10", "22", "Calle Mayor", "900 000 001", "Chuletas"};
+		String[]p3= {"MCarrones", "14", "23", "Calle Colesterol", "900 000 002", "Hamburgueseria"};
 		
-		sel2.add(misR);
-		misR.setBackground(Color.WHITE);
-		sel.add(nuevoR);
-		nuevoR.setBackground(Color.WHITE);
+		modelo.addRow(p1);
+		modelo.addRow(p2);
+		modelo.addRow(p3);
 		
-		add(sel,BorderLayout.EAST);
-		add(sel2,BorderLayout.WEST);
 		
-		setSize(1000,600);
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		JTable tabla = new JTable(modelo);
+		JScrollPane scroll = new JScrollPane(tabla);
+		tabla.setBounds(12, 250, 650, 75);
+		setSize(450, 750);
+		scroll.setBounds(12, 250, 650, 75);
+		
+		add(scroll);
+		setLayout(null);
 		setVisible(true);
-
-		misR.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				VMisRestaurantes v1 = new VMisRestaurantes();
-				v1.setSize(1000, 600);
-				v1.setVisible(true);
-				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				v1.setTitle("MyRestaurant");
-				dispose();				
-			}});
-		
-		nuevoR.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				VAñadirRest v1 = new VAñadirRest();
-				v1.setSize(1000, 600);
-				v1.setVisible(true);
-				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				v1.setTitle("MyRestaurant");
-				dispose();	
-			}});
-		
-		
-		
 	}
+	
 	public void agregarmenu(){
 		  JMenuBar barra=new JMenuBar();
 		  JMenu archivo=new JMenu("Opciones");
@@ -160,17 +150,16 @@ public class VAdmin1 extends JFrame{
 			}));
 		 }
 	
-public static void main(String[] args) {
-	SwingUtilities.invokeLater(new Runnable() {
-		
-		@Override
-		public void run() {
-			// TODO Auto-generated method stub
-			new VAdmin1();
-
+	public static void main(String[] a) {
+		SwingUtilities.invokeLater(new Runnable() {
 			
-		}
-	});
-}
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				new VMisRestaurantes();
 
+				
+			}
+		});
+	}
 }
