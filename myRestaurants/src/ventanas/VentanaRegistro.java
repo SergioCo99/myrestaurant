@@ -122,7 +122,7 @@ public class VentanaRegistro extends JFrame{
 	    JPasswordField contrasenya = new JPasswordField();
 	    contrasenya.setEchoChar('*');
 		textContrasenya.setBounds(250, 200, 300, 30);
-
+		
 		//Teléfono
 		textTelefono = new JTextField("Ejemplo: 600 000 000");
 		textTelefono.setBounds(250, 125, 300, 30);
@@ -156,9 +156,10 @@ public class VentanaRegistro extends JFrame{
 			
 			@Override
 				public void actionPerformed(ActionEvent e) {
+				
 					String crearUsuario = textUsuario.getText();
 					String crearCorreo = textCorreo.getText();
-					String crearContrasenya = textContrasenya.getText();
+					char[] crearContrasenya = contrasenya.getPassword();
 					String crearTelefono = textTelefono.getText();
 					
 					errorNombre.setText("");
@@ -168,37 +169,35 @@ public class VentanaRegistro extends JFrame{
 										  
 					Connection conexion = BdMyRestaurants.conectar();
 					Statement st = null;
+	try {
+		st = conexion.createStatement();
+	} catch (SQLException e1) {
+		e1.printStackTrace();
+	
+
+	if (crearCorreo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
++ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && !crearCorreo.isEmpty() && !crearContrasenya.equals("") && crearTelefono.matches("^[0-9]*$") && BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true){
+		errorNombre.setText("");
+		errorEmail.setText("");
+		errorContraseña.setText("");
+	} else if (!crearUsuario.matches("^[a-zA-Z]*$") || crearUsuario.isEmpty()) {
+		errorNombre.setText("Este nombre no es válido");
+		JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
+
+	}else if (!crearCorreo.matches(
+			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
+			|| crearCorreo.isEmpty()
+			|| BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
+		errorEmail.setText("El Email no es válido");
+		JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
+
+	}else if (crearContrasenya.equals("")) {
+		errorContraseña.setText("La Contraseña no es válida");
+		JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
+
+	}
+	}JOptionPane.showMessageDialog(rootPane, "Creado correctamente!");
 					
-					
-					try {
-						st = conexion.createStatement();
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-					
-
-					if (crearCorreo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
-	+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && !crearCorreo.isEmpty() && !crearContrasenya.isEmpty() && crearTelefono.matches("^[0-9]*$") && BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true){
-						errorNombre.setText("");
-						errorEmail.setText("");
-						errorContraseña.setText("");
-					} else if (!crearUsuario.matches("^[a-zA-Z]*$") || crearUsuario.isEmpty()) {
-						errorNombre.setText("Este nombre no es válido");
-						JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
-
-					}else if (!crearCorreo.matches(
-							"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
-							|| crearCorreo.isEmpty()
-							|| BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
-						errorEmail.setText("El Email no es válido");
-						JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
-
-					}else if (crearContrasenya.isEmpty()) {
-						errorContraseña.setText("La Contraseña no es válida");
-						JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
-
-					}
-					}
-				
 				}
 			
 			

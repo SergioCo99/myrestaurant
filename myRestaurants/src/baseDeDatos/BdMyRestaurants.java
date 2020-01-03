@@ -16,9 +16,9 @@ public class BdMyRestaurants {
 	
 	//NO SE COMO COMPARAR SI ES GESTOR O ES USUARIO estaría bien hacerlo
 	private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
-	private static final String URL = "jdbc:mysql://localhost:3306/Modelo.mwb";//Falta meter la bd correctamente
+	private static final String URL = "jdbc:mysql://localhost:3306/MyRestaurants.sql";//Falta meter la bd correctamente
 	private static final String USUARIO = "root";//falta la contraseña
-	private static final String CLAVE = "Portu129";
+	private static final String CLAVE = "1234Clave";
 
 	public static Connection conectar() {
 		try {
