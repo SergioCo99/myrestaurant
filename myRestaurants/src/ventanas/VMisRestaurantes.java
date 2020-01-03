@@ -31,7 +31,7 @@ public class VMisRestaurantes extends JFrame {
 
 	public VMisRestaurantes() {
 		
-		super("Mi tabla");
+		super("Mi tabla.");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		ImagenIniSesion v = new ImagenIniSesion();
