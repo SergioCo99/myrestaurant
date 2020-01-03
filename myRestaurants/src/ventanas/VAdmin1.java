@@ -69,7 +69,7 @@ public class VAdmin1 extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VAñadirRest v1 = new VAñadirRest();
+				VAnyadirRest v1 = new VAnyadirRest();
 				v1.setSize(1000, 600);
 				v1.setVisible(true);
 				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -84,9 +84,9 @@ public class VAdmin1 extends JFrame{
 		  JMenuBar barra=new JMenuBar();
 		  JMenu archivo=new JMenu("Opciones");
 		  JMenu ayuda=new JMenu("Ayuda");
-		  JMenuItem salir=new JMenuItem("Atrás");
+		  JMenuItem salir=new JMenuItem("Atrï¿½s");
 		  JMenuItem entrarAdmin=new JMenuItem("Entrar como Usuario");
-		  JMenuItem Acercade=new JMenuItem("Acerca de la aplicación");
+		  JMenuItem Acercade=new JMenuItem("Acerca de la aplicaciï¿½n");
 		  barra.add(archivo);
 		  barra.add(ayuda);
 		  archivo.add(salir);
@@ -118,16 +118,16 @@ public class VAdmin1 extends JFrame{
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(rootPane, "Aplicación creada por: \n"
+					JOptionPane.showMessageDialog(rootPane, "Aplicaciï¿½n creada por: \n"
 							+ "Jokin Martin \n"
-							+ "Sergio López \n"
+							+ "Sergio Lï¿½pez \n"
 							+ "Sergio Cogollos \n"
-							+ "Alumnos de 3º de Ingeniería Informática en la Universidad de Deusto");
+							+ "Alumnos de 3ï¿½ de Ingenierï¿½a Informï¿½tica en la Universidad de Deusto");
 					
 				}
 			}));
 		  
-		  //Boton atrás
+		  //Boton atrï¿½s
 		  salir.addActionListener((new ActionListener() {
 				
 				@Override

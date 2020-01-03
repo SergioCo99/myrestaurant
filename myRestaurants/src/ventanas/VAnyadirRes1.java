@@ -5,14 +5,14 @@ import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 
-public class VAñadirRes1 extends javax.swing.JPanel {
-	public VAñadirRes1() {
+public class VAnyadirRes1 extends javax.swing.JPanel {
+	public VAnyadirRes1() {
 		this.setSize(1000, 600);
 	 }
 	
 	public void paintComponent(Graphics g) {
 		Dimension tamanio = getSize();
-		ImageIcon imagenFondo = new ImageIcon(getClass().getResource("VAñadirRes1.jpg"));
+		ImageIcon imagenFondo = new ImageIcon(getClass().getResource("VAï¿½adirRes1.jpg"));
 		g.drawImage(imagenFondo.getImage(), 0, 0, tamanio.width, tamanio.height, null);
 		setOpaque(false);
 		super.paintComponent(g);

@@ -32,7 +32,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
-public class VAñadirRest extends JFrame {
+public class VAnyadirRest extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JTextField textNombreRest;
 	private JSpinner textHoraApertura;
@@ -63,11 +63,11 @@ public class VAñadirRest extends JFrame {
 	private JLabel relojito;
 	public final static int ONE_SECOND = 1000;
 	private final SimpleDateFormat clockFormat = new SimpleDateFormat("H:mm:ss");
-	public VAñadirRest() {
+	public VAnyadirRest() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new GridLayout(1,1));
 		setBounds(100, 100, 450, 300);
-		VAñadirRes1 v = new VAñadirRes1();
+		VAnyadirRes1 v = new VAnyadirRes1();
 		v.setBorder(new EmptyBorder(5, 5, 5, 5));
 		v.setLayout(new BorderLayout(0, 0));
 		setContentPane(v);
@@ -143,13 +143,13 @@ public class VAñadirRest extends JFrame {
 		JCheckBox comidaCasera = new JCheckBox("Comida Casera");
 		comidaCasera.setOpaque(false);
 		
-		JCheckBox comidaHamburgueseria = new JCheckBox("Hamburguesería");
+		JCheckBox comidaHamburgueseria = new JCheckBox("Hamburgueserï¿½a");
 		comidaHamburgueseria.setOpaque(false);
 		
 		JCheckBox comidaPizzeria = new JCheckBox("Pizzeria");
 		comidaPizzeria.setOpaque(false);
 
-		JCheckBox comidaSidreria = new JCheckBox("Sidrería");
+		JCheckBox comidaSidreria = new JCheckBox("Sidrerï¿½a");
 		comidaSidreria.setOpaque(false);
 		
 
@@ -212,9 +212,9 @@ public class VAñadirRest extends JFrame {
 		izquierda.add(textHoraApertura);
 		izquierda.add(new JLabel("  Hora de cierre:"));
 		izquierda.add(textHoraCierre);
-		izquierda.add(new JLabel("  Dirección:"));
+		izquierda.add(new JLabel("  Direcciï¿½n:"));
 		izquierda.add(textDireccion);
-		izquierda.add(new JLabel("  Teléfono:"));
+		izquierda.add(new JLabel("  Telï¿½fono:"));
 		izquierda.add(textTelefono);
 		izquierda.add(new JLabel("  Tipo de comida:"));
 		izquierda.add(panelTipoComida);
@@ -233,9 +233,9 @@ public class VAñadirRest extends JFrame {
 		  JMenuBar barra=new JMenuBar();
 		  JMenu archivo=new JMenu("Opciones");
 		  JMenu ayuda=new JMenu("Ayuda");
-		  JMenuItem salir=new JMenuItem("Atrás");
-		  JMenuItem entrarAdmin=new JMenuItem("Cerrar sesión");
-		  JMenuItem Acercade=new JMenuItem("Acerca de la aplicación");
+		  JMenuItem salir=new JMenuItem("Atrï¿½s");
+		  JMenuItem entrarAdmin=new JMenuItem("Cerrar sesiï¿½n");
+		  JMenuItem Acercade=new JMenuItem("Acerca de la aplicaciï¿½n");
 		  barra.add(archivo);
 		  barra.add(ayuda);
 		  archivo.add(salir);
@@ -267,16 +267,16 @@ public class VAñadirRest extends JFrame {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(rootPane, "Aplicación creada por: \n"
+					JOptionPane.showMessageDialog(rootPane, "Aplicaciï¿½n creada por: \n"
 							+ "Jokin Martin \n"
-							+ "Sergio López \n"
+							+ "Sergio Lï¿½pez \n"
 							+ "Sergio Cogollos \n"
-							+ "Alumnos de 3º de Ingeniería Informática en la Universidad de Deusto");
+							+ "Alumnos de 3ï¿½ de Ingenierï¿½a Informï¿½tica en la Universidad de Deusto");
 					
 				}
 			}));
 		  
-		  //Boton atrás
+		  //Boton atrï¿½s
 		  salir.addActionListener((new ActionListener() {
 				
 				@Override
@@ -296,7 +296,7 @@ public class VAñadirRest extends JFrame {
 		  entrarAdmin.addActionListener((new ActionListener() {
 			  @Override
 				public void actionPerformed(ActionEvent e) {
-					int dialogButton = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres cerrar sesión?", "Cerrar sesión", JOptionPane.YES_NO_OPTION);
+					int dialogButton = JOptionPane.showConfirmDialog(null, "ï¿½Estï¿½s seguro de que quieres cerrar sesiï¿½n?", "Cerrar sesiï¿½n", JOptionPane.YES_NO_OPTION);
 
 						if(dialogButton == JOptionPane.YES_OPTION) {
 							VentanaInicio v = new VentanaInicio();
@@ -320,7 +320,7 @@ public static void main(String[] args) {
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
-			new VAñadirRest();
+			new VAnyadirRest();
 
 			
 		}

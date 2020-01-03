@@ -51,7 +51,7 @@ public class VentanaMenu extends JFrame{
 		  JMenu ayuda=new JMenu("Ayuda");
 		  JMenuItem salir=new JMenuItem("Salir");
 		  JMenuItem entrarAdmin=new JMenuItem("Entrar como Admin");
-		  JMenuItem Acercade=new JMenuItem("Acerca de la aplicación");
+		  JMenuItem Acercade=new JMenuItem("Acerca de la aplicacion");
 		  barra.add(archivo);
 		  barra.add(ayuda);
 		  archivo.add(salir);
@@ -76,7 +76,7 @@ public class VentanaMenu extends JFrame{
 			relojito.setText(clockFormat.format(new Date()));
 			timer.start();
 		 
-		  //Estaría bien hacer esto
+		  //Estaria bien hacer esto
 		  //barra.add(new JTextField("Hola, "+ nombreUsuario));
 		  
 		  //Boton acerca de
@@ -84,11 +84,11 @@ public class VentanaMenu extends JFrame{
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(rootPane, "Aplicación creada por: \n"
+					JOptionPane.showMessageDialog(rootPane, "Aplicaciï¿½n creada por: \n"
 							+ "Jokin Martin \n"
-							+ "Sergio López \n"
+							+ "Sergio Lï¿½pez \n"
 							+ "Sergio Cogollos \n"
-							+ "Alumnos de 3º de Ingeniería Informática en la Universidad de Deusto");
+							+ "Alumnos de 3ï¿½ de Ingenierï¿½a Informï¿½tica en la Universidad de Deusto");
 					
 				}
 			}));
@@ -98,7 +98,7 @@ public class VentanaMenu extends JFrame{
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					int dialogButton = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres cerrar sesión?", "Cerrar sesión", JOptionPane.YES_NO_OPTION);
+					int dialogButton = JOptionPane.showConfirmDialog(null, "ï¿½Estï¿½s seguro de que quieres cerrar sesiï¿½n?", "Cerrar sesiï¿½n", JOptionPane.YES_NO_OPTION);
 
 						if(dialogButton == JOptionPane.YES_OPTION) {
 							VentanaInicio v = new VentanaInicio();
@@ -119,8 +119,8 @@ public class VentanaMenu extends JFrame{
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					int dialogButton = JOptionPane.showConfirmDialog(null, "Vas a cerrar sesión y entrar con una cuenta de administrador\n"
-							+ "                                   ¿Estás seguro?", "Administrador", JOptionPane.YES_NO_OPTION);
+					int dialogButton = JOptionPane.showConfirmDialog(null, "Vas a cerrar sesiï¿½n y entrar con una cuenta de administrador\n"
+							+ "                                   ï¿½Estï¿½s seguro?", "Administrador", JOptionPane.YES_NO_OPTION);
 
 						if(dialogButton == JOptionPane.YES_OPTION) {
 							VInicSesAdm v = new VInicSesAdm();
@@ -193,10 +193,10 @@ public class VentanaMenu extends JFrame{
 		
 		JSlider sliderPrecio = new JSlider(JSlider.HORIZONTAL, 0, 70, 0);
 		sliderPrecio.setInverted(false); //se invierte el relleno del JSlider (desde donde comienza)
-		sliderPrecio.setPaintTicks(true); //las rayitas que marcan los números
-		sliderPrecio.setMajorTickSpacing(10); // de cuanto en cuanto los números en el slider
+		sliderPrecio.setPaintTicks(true); //las rayitas que marcan los nï¿½meros
+		sliderPrecio.setMajorTickSpacing(10); // de cuanto en cuanto los nï¿½meros en el slider
 		sliderPrecio.setMinorTickSpacing(5); //las rayitas de cuanto en cuanto
-		sliderPrecio.setPaintLabels(true); //si se ve los números del slider
+		sliderPrecio.setPaintLabels(true); //si se ve los nï¿½meros del slider
 		
 		izquierda.add(sliderPrecio);
 		izquierda.add(new JLabel("                      "));

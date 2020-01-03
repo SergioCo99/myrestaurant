@@ -66,33 +66,91 @@ public class VentanaUsuario extends JFrame{
 		GridLayout gridpanel = new GridLayout();
 		GridBagConstraints c= new GridBagConstraints();
 		
+		Panel.setLayout(gridpanel);
+		
 		JLabel[] labels = {LnombreUsuario,Lcorreo, Lcontrasenya, Ltelefono, Ldireccion };
 	    JTextField[] textFields = {nombreUsuario,correo, contrasenya, telefono, direccion};
-		/*addLabelTextRows(labels, textFields, gridpanel, Panel);
+		addLabelTextRows(labels, textFields, gridpanel, Panel);
+		
+		c.gridwidth = GridBagConstraints.RELATIVE; //next-to-last
+		c.fill = GridBagConstraints.NONE;      
+		c.weightx = 0.0;                       
+		Panel.add(Ldireccion, c);
+		c.gridwidth = GridBagConstraints.REMAINDER; 
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 1.0;
+		Panel.add(direccion, c);
+		c.gridwidth = GridBagConstraints.RELATIVE;
+		c.fill = GridBagConstraints.NONE;      
+		c.weightx = 0.0;   
+		Panel.add(Ltipo, c);
+		c.gridwidth = GridBagConstraints.REMAINDER; 
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 1.0;
+		Panel.add(tipo, c);
+
+		c.gridwidth = GridBagConstraints.REMAINDER; //last
+		c.fill = GridBagConstraints.NONE;  
+	    c.anchor = GridBagConstraints.EAST;
+		c.weightx = 1.0;
+		
+		Panel.add(botones, c);
+	    Panel.setBorder(
+				BorderFactory.createCompoundBorder(
+                            BorderFactory.createTitledBorder("Inserción de Usuario"),
+                            BorderFactory.createEmptyBorder(5,5,5,5)));  
+	    
+	    JPanel izquierda = new JPanel(new BorderLayout());
+	    izquierda.add(Panel, BorderLayout.PAGE_START);
+		//leftPane.add(areaScrollPane, BorderLayout.CENTER);
+
+		add(izquierda, BorderLayout.LINE_START);
 		
 
+		
 
-
-		
-		
-		
-		private void addLabelTextRows(JLabel[] labels,
-				  JTextField[] textFields,
-				  GridLayout gridpanel,
-				  Container c) 
-{
-		
-}*/
 		this.setVisible(true);
 		this.setSize(650,300);
-		this.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
+		this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		
 		
 		
 		
 	}
 	
-	
+	private void addLabelTextRows(JLabel[] labels, JTextField[] textFields, GridLayout gridpanel, Container container) {
+		// TODO Auto-generated method stub
+
+		GridBagConstraints c = new GridBagConstraints();
+		c.anchor = GridBagConstraints.EAST;
+		int numLabels = labels.length;
+
+			for (int i = 0; i < numLabels; i++) {
+				c.gridwidth = GridBagConstraints.RELATIVE; 
+				c.fill = GridBagConstraints.NONE;     
+				c.weightx = 0.0;                       
+				container.add(labels[i], c);
+
+				c.gridwidth = GridBagConstraints.REMAINDER;     
+				c.fill = GridBagConstraints.HORIZONTAL;
+				c.weightx = 1.0;
+				container.add(textFields[i], c);
+			}
+		
+	}
+
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(new Runnable() {
+			
+			@Override
+			public void run() {/**/
+				// TODO Auto-generated method stub
+				new VentanaUsuario();
+
+				
+			}
+		});
+	}
 	
 	
 }
