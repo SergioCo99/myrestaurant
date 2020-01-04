@@ -29,7 +29,7 @@ public class VentanaRegistro extends JFrame{
 	boolean escrito4;
 	private JLabel errorNombre;
 	private JLabel errorEmail;
-	private JLabel errorContrasenya;
+	private JLabel errorContraseña;
 	public static Logger BDLogger;
 
 	
@@ -117,13 +117,13 @@ public class VentanaRegistro extends JFrame{
 			}
 		});
 		
-		//Contraseï¿½a
+		//Contraseña
 		textContrasenya = new JPasswordField("");
 	    JPasswordField contrasenya = new JPasswordField();
 	    contrasenya.setEchoChar('*');
 		textContrasenya.setBounds(250, 200, 300, 30);
 
-		//Telï¿½fono
+		//Teléfono
 		textTelefono = new JTextField("Ejemplo: 600 000 000");
 		textTelefono.setBounds(250, 125, 300, 30);
 		escrito4 = false;
@@ -146,9 +146,9 @@ public class VentanaRegistro extends JFrame{
 		errorEmail.setBounds(250, 155, 150, 30);
 		errorEmail.setForeground(Color.RED);
 
-		errorContrasenya = new JLabel();
-		errorContrasenya.setBounds(250, 230, 150, 30);
-		errorContrasenya.setForeground(Color.RED);
+		errorContraseña = new JLabel();
+		errorContraseña.setBounds(250, 230, 150, 30);
+		errorContraseña.setForeground(Color.RED);
 		
 		
 		JButton botonRegistro = new JButton("Registrarse ");
@@ -163,7 +163,7 @@ public class VentanaRegistro extends JFrame{
 					
 					errorNombre.setText("");
 					errorEmail.setText("");
-					errorContrasenya.setText("");
+					errorContraseña.setText("");
 					
 										  
 					Connection conexion = BdMyRestaurants.conectar();
@@ -180,20 +180,20 @@ public class VentanaRegistro extends JFrame{
 	+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && !crearCorreo.isEmpty() && !crearContrasenya.isEmpty() && crearTelefono.matches("^[0-9]*$") && BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true){
 						errorNombre.setText("");
 						errorEmail.setText("");
-						errorContrasenya.setText("");
+						errorContraseña.setText("");
 					} else if (!crearUsuario.matches("^[a-zA-Z]*$") || crearUsuario.isEmpty()) {
-						errorNombre.setText("Este nombre no es vï¿½lido");
+						errorNombre.setText("Este nombre no es válido");
 						JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
 
 					}else if (!crearCorreo.matches(
 							"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
 							|| crearCorreo.isEmpty()
 							|| BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
-						errorEmail.setText("El Email no es vï¿½lido");
+						errorEmail.setText("El Email no es válido");
 						JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
 
 					}else if (crearContrasenya.isEmpty()) {
-						errorContrasenya.setText("La Contraseï¿½a no es vï¿½lida");
+						errorContraseña.setText("La Contraseña no es válida");
 						JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
 
 					}
@@ -226,7 +226,7 @@ public class VentanaRegistro extends JFrame{
 		izquierda.add(textUsuario);
 		izquierda.add(new JLabel("                    Correo:"));
 		izquierda.add(textCorreo);
-		izquierda.add(new JLabel("                    Contraseï¿½a:"));
+		izquierda.add(new JLabel("                    Contraseña:"));
 		izquierda.add(textContrasenya);
 		izquierda.add(new JLabel("                    Telefono:"));
 		izquierda.add(textTelefono);	

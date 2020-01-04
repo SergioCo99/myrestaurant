@@ -12,7 +12,7 @@ public class VAnyadirRes1 extends javax.swing.JPanel {
 	
 	public void paintComponent(Graphics g) {
 		Dimension tamanio = getSize();
-		ImageIcon imagenFondo = new ImageIcon(getClass().getResource("VAï¿½adirRes1.jpg"));
+		ImageIcon imagenFondo = new ImageIcon(getClass().getResource("VAñadirRes1.jpg"));
 		g.drawImage(imagenFondo.getImage(), 0, 0, tamanio.width, tamanio.height, null);
 		setOpaque(false);
 		super.paintComponent(g);
