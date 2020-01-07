@@ -143,13 +143,13 @@ public class VAnyadirRest extends JFrame {
 		JCheckBox comidaCasera = new JCheckBox("Comida Casera");
 		comidaCasera.setOpaque(false);
 		
-		JCheckBox comidaHamburgueseria = new JCheckBox("Hamburgueserï¿½a");
+		JCheckBox comidaHamburgueseria = new JCheckBox("Hamburguesería");
 		comidaHamburgueseria.setOpaque(false);
 		
 		JCheckBox comidaPizzeria = new JCheckBox("Pizzeria");
 		comidaPizzeria.setOpaque(false);
 
-		JCheckBox comidaSidreria = new JCheckBox("Sidrerï¿½a");
+		JCheckBox comidaSidreria = new JCheckBox("Sidrería");
 		comidaSidreria.setOpaque(false);
 		
 
@@ -233,9 +233,9 @@ public class VAnyadirRest extends JFrame {
 		  JMenuBar barra=new JMenuBar();
 		  JMenu archivo=new JMenu("Opciones");
 		  JMenu ayuda=new JMenu("Ayuda");
-		  JMenuItem salir=new JMenuItem("Atrï¿½s");
-		  JMenuItem entrarAdmin=new JMenuItem("Cerrar sesiï¿½n");
-		  JMenuItem Acercade=new JMenuItem("Acerca de la aplicaciï¿½n");
+		  JMenuItem salir=new JMenuItem("Atrás");
+		  JMenuItem entrarAdmin=new JMenuItem("Cerrar sesión");
+		  JMenuItem Acercade=new JMenuItem("Acerca de la aplicación");
 		  barra.add(archivo);
 		  barra.add(ayuda);
 		  archivo.add(salir);
@@ -267,11 +267,11 @@ public class VAnyadirRest extends JFrame {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(rootPane, "Aplicaciï¿½n creada por: \n"
+					JOptionPane.showMessageDialog(rootPane, "Aplicación creada por: \n"
 							+ "Jokin Martin \n"
-							+ "Sergio Lï¿½pez \n"
+							+ "Sergio López \n"
 							+ "Sergio Cogollos \n"
-							+ "Alumnos de 3ï¿½ de Ingenierï¿½a Informï¿½tica en la Universidad de Deusto");
+							+ "Alumnos de 3º de Ingeniería Informática en la Universidad de Deusto");
 					
 				}
 			}));
@@ -296,7 +296,7 @@ public class VAnyadirRest extends JFrame {
 		  entrarAdmin.addActionListener((new ActionListener() {
 			  @Override
 				public void actionPerformed(ActionEvent e) {
-					int dialogButton = JOptionPane.showConfirmDialog(null, "ï¿½Estï¿½s seguro de que quieres cerrar sesiï¿½n?", "Cerrar sesiï¿½n", JOptionPane.YES_NO_OPTION);
+					int dialogButton = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres cerrar sesión?", "Cerrar sesión", JOptionPane.YES_NO_OPTION);
 
 						if(dialogButton == JOptionPane.YES_OPTION) {
 							VentanaInicio v = new VentanaInicio();

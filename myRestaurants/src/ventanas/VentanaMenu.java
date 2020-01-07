@@ -84,11 +84,11 @@ public class VentanaMenu extends JFrame{
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(rootPane, "Aplicaciï¿½n creada por: \n"
+					JOptionPane.showMessageDialog(rootPane, "Aplicación creada por: \n"
 							+ "Jokin Martin \n"
-							+ "Sergio Lï¿½pez \n"
+							+ "Sergio López \n"
 							+ "Sergio Cogollos \n"
-							+ "Alumnos de 3ï¿½ de Ingenierï¿½a Informï¿½tica en la Universidad de Deusto");
+							+ "Alumnos de 3º de Ingeniería Informática en la Universidad de Deusto");
 					
 				}
 			}));
@@ -98,7 +98,7 @@ public class VentanaMenu extends JFrame{
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					int dialogButton = JOptionPane.showConfirmDialog(null, "ï¿½Estï¿½s seguro de que quieres cerrar sesiï¿½n?", "Cerrar sesiï¿½n", JOptionPane.YES_NO_OPTION);
+					int dialogButton = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres cerrar sesión?", "Cerrar sesión", JOptionPane.YES_NO_OPTION);
 
 						if(dialogButton == JOptionPane.YES_OPTION) {
 							VentanaInicio v = new VentanaInicio();
@@ -119,8 +119,8 @@ public class VentanaMenu extends JFrame{
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					int dialogButton = JOptionPane.showConfirmDialog(null, "Vas a cerrar sesiï¿½n y entrar con una cuenta de administrador\n"
-							+ "                                   ï¿½Estï¿½s seguro?", "Administrador", JOptionPane.YES_NO_OPTION);
+					int dialogButton = JOptionPane.showConfirmDialog(null, "Vas a cerrar sesión y entrar con una cuenta de administrador\n"
+							+ "                                   ¿Estás seguro?", "Administrador", JOptionPane.YES_NO_OPTION);
 
 						if(dialogButton == JOptionPane.YES_OPTION) {
 							VInicSesAdm v = new VInicSesAdm();
