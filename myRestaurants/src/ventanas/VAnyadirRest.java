@@ -32,7 +32,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
-public class VAñadirRest extends JFrame {
+public class VAnyadirRest extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JTextField textNombreRest;
 	private JSpinner textHoraApertura;
@@ -63,11 +63,11 @@ public class VAñadirRest extends JFrame {
 	private JLabel relojito;
 	public final static int ONE_SECOND = 1000;
 	private final SimpleDateFormat clockFormat = new SimpleDateFormat("H:mm:ss");
-	public VAñadirRest() {
+	public VAnyadirRest() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new GridLayout(1,1));
 		setBounds(100, 100, 450, 300);
-		VAñadirRes1 v = new VAñadirRes1();
+		VAnyadirRes1 v = new VAnyadirRes1();
 		v.setBorder(new EmptyBorder(5, 5, 5, 5));
 		v.setLayout(new BorderLayout(0, 0));
 		setContentPane(v);
@@ -212,9 +212,9 @@ public class VAñadirRest extends JFrame {
 		izquierda.add(textHoraApertura);
 		izquierda.add(new JLabel("  Hora de cierre:"));
 		izquierda.add(textHoraCierre);
-		izquierda.add(new JLabel("  Dirección:"));
+		izquierda.add(new JLabel("  Direcciï¿½n:"));
 		izquierda.add(textDireccion);
-		izquierda.add(new JLabel("  Teléfono:"));
+		izquierda.add(new JLabel("  Telï¿½fono:"));
 		izquierda.add(textTelefono);
 		izquierda.add(new JLabel("  Tipo de comida:"));
 		izquierda.add(panelTipoComida);
@@ -276,7 +276,7 @@ public class VAñadirRest extends JFrame {
 				}
 			}));
 		  
-		  //Boton atrás
+		  //Boton atrï¿½s
 		  salir.addActionListener((new ActionListener() {
 				
 				@Override
@@ -320,7 +320,7 @@ public static void main(String[] args) {
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
-			new VAñadirRest();
+			new VAnyadirRest();
 
 			
 		}

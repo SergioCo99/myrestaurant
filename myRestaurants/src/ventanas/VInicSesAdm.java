@@ -68,11 +68,11 @@ public class VInicSesAdm extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VAdmin1 v = new VAdmin1();
-				v.setSize(1000, 600);
-				v.setVisible(true);
-				v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				v.setTitle("MyRestaurant");
+				VAdmin1 v54 = new VAdmin1 ();
+				v54.setSize(1000, 600);
+				v54.setVisible(true);
+				v54.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				v54.setTitle("MyRestaurant");
 				dispose();
 			}
 		});

@@ -51,7 +51,7 @@ public class VentanaMenu extends JFrame{
 		  JMenu ayuda=new JMenu("Ayuda");
 		  JMenuItem salir=new JMenuItem("Salir");
 		  JMenuItem entrarAdmin=new JMenuItem("Entrar como Admin");
-		  JMenuItem Acercade=new JMenuItem("Acerca de la aplicación");
+		  JMenuItem Acercade=new JMenuItem("Acerca de la aplicacion");
 		  barra.add(archivo);
 		  barra.add(ayuda);
 		  archivo.add(salir);
@@ -76,7 +76,7 @@ public class VentanaMenu extends JFrame{
 			relojito.setText(clockFormat.format(new Date()));
 			timer.start();
 		 
-		  //Estaría bien hacer esto
+		  //Estaria bien hacer esto
 		  //barra.add(new JTextField("Hola, "+ nombreUsuario));
 		  
 		  //Boton acerca de
@@ -193,10 +193,10 @@ public class VentanaMenu extends JFrame{
 		
 		JSlider sliderPrecio = new JSlider(JSlider.HORIZONTAL, 0, 70, 0);
 		sliderPrecio.setInverted(false); //se invierte el relleno del JSlider (desde donde comienza)
-		sliderPrecio.setPaintTicks(true); //las rayitas que marcan los números
-		sliderPrecio.setMajorTickSpacing(10); // de cuanto en cuanto los números en el slider
+		sliderPrecio.setPaintTicks(true); //las rayitas que marcan los nï¿½meros
+		sliderPrecio.setMajorTickSpacing(10); // de cuanto en cuanto los nï¿½meros en el slider
 		sliderPrecio.setMinorTickSpacing(5); //las rayitas de cuanto en cuanto
-		sliderPrecio.setPaintLabels(true); //si se ve los números del slider
+		sliderPrecio.setPaintLabels(true); //si se ve los nï¿½meros del slider
 		
 		izquierda.add(sliderPrecio);
 		izquierda.add(new JLabel("                      "));

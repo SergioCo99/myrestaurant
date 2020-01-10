@@ -57,14 +57,19 @@ public class VAdmin1 extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-								
+				VMisRestaurantes v1 = new VMisRestaurantes();
+				v1.setSize(1000, 600);
+				v1.setVisible(true);
+				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				v1.setTitle("MyRestaurant");
+				dispose();				
 			}});
 		
 		nuevoR.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VAñadirRest v1 = new VAñadirRest();
+				VAnyadirRest v1 = new VAnyadirRest();
 				v1.setSize(1000, 600);
 				v1.setVisible(true);
 				v1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -122,7 +127,7 @@ public class VAdmin1 extends JFrame{
 				}
 			}));
 		  
-		  //Boton atrás
+		  //Boton atrï¿½s
 		  salir.addActionListener((new ActionListener() {
 				
 				@Override

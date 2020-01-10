@@ -81,11 +81,11 @@ public class BdMyRestaurantsTest {
 	}
 
 	@Test
-	public void cambiarContraseñaTest() {
+	public void cambiarContrasenyaTest() {
 		Statement st;
 		try {
 			st = conexion.createStatement();
-			BdMyRestaurants.cambiarContraseña(st, "123", "lauram@gmail.com");
+			BdMyRestaurants.cambiarContrasenya(st, "123", "lauram@gmail.com");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

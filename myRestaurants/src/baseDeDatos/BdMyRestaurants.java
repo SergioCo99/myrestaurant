@@ -14,11 +14,13 @@ import usuario.TipoUsuario;
 
 public class BdMyRestaurants {
 	
-	//NO SE COMO COMPARAR SI ES GESTOR O ES USUARIO estaría bien hacerlo
+	//NO SE COMO COMPARAR SI ES GESTOR O ES USUARIO estarï¿½a bien hacerlo
 	private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
+
 	private static final String URL = "jdbc:mysql://localhost:3306/MyRestaurants.sql";//Falta meter la bd correctamente
 	private static final String USUARIO = "root";//falta la contraseña
 	private static final String CLAVE = "1234Clave";
+
 
 	public static Connection conectar() {
 		try {
@@ -161,13 +163,13 @@ public class BdMyRestaurants {
 			e.printStackTrace();
 		}
 	}
-	public static void cambiarContraseña(Statement st, String passw, String nomb_usu) {
+	public static void cambiarContrasenya(Statement st, String passw, String nomb_usu) {
 		String SentSQL = "UPDATE usuario SET contrasenya = '" + passw + "' WHERE nombre_usuario = '" + nomb_usu + "';";
 		System.out.println(SentSQL);
 		try {
 			st.executeUpdate(SentSQL);
 		} catch (SQLException e) {
-			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error cambiarContraseña\n" + SentSQL, e);
+			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error cambiarContraseï¿½a\n" + SentSQL, e);
 			e.printStackTrace();
 		}
 	}

@@ -5,8 +5,8 @@ import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 
-public class VAñadirRes1 extends javax.swing.JPanel {
-	public VAñadirRes1() {
+public class VAnyadirRes1 extends javax.swing.JPanel {
+	public VAnyadirRes1() {
 		this.setSize(1000, 600);
 	 }
 	
