@@ -1,29 +1,51 @@
 package alimentacion;
 
 public class Postre extends Producto{
-	private boolean esFrio;
+	private String nombre;
+	private String descripcion;
+	private int precio;
 
-	public Postre(String nombre, String descripcion, int precio, boolean esFrio) {
-		super(nombre, descripcion, precio);
-		this.esFrio = esFrio;
-	}
-
-	public Postre(boolean esFrio) {
+	public Postre(String nombre, String descripcion, int precio) {
 		super();
-		this.esFrio = false;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.precio = precio;
+	}
+	
+	public Postre() {
+		super();
+		this.nombre = "";
+		this.descripcion = "";
+		this.precio = 0;
 	}
 
-	public boolean isEsFrio() {
-		return esFrio;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setEsFrio(boolean esFrio) {
-		this.esFrio = esFrio;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
 	}
 
 	@Override
 	public String toString() {
-		return "Postre [esFrio=" + esFrio + "]";
+		return "Producto [nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio + "]";
 	}
 	
 }
