@@ -1,18 +1,24 @@
 package restaurante;
 
 public class Restaurante {
+	private static int contador = 0;
 
+	private int id_restaurante;
 	private String nombre;
-	private String horario;
+	private int horarioApertura;
+	private int horarioCierre;
 	private String direccion;
 	private int telefono;
 	//enum
 	private TipoComida tipocomida;
 	
-	public Restaurante(String nombre, String horario, String direccion, int telefono, TipoComida tipocomida) {
+	public Restaurante(String nombre, int horarioApertura, int horarioCierre, String direccion, int telefono, TipoComida tipocomida) {
 		super();
+		this.id_restaurante = contador;
+		contador++;
 		this.nombre = nombre;
-		this.horario = horario;
+		this.horarioApertura = horarioApertura;
+		this.horarioCierre = horarioCierre;
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.tipocomida = tipocomida;
@@ -20,13 +26,22 @@ public class Restaurante {
 	
 	public Restaurante() {
 		super();
+		this.id_restaurante = contador;
+		contador++;
 		this.nombre = "";
-		this.horario = "";
+		this.horarioApertura = 8;
+		this.horarioCierre = 9;
 		this.direccion = "";
 		this.telefono = 0;
 		this.tipocomida = null;
 	}
+	public int getId_restaurante() {
+		return id_restaurante;
+	}
 
+	public void setId_restaurante(int id_restaurante) {
+		this.id_restaurante = id_restaurante;
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -35,12 +50,20 @@ public class Restaurante {
 		this.nombre = nombre;
 	}
 
-	public String getHorario() {
-		return horario;
+	public int getHorarioApertura() {
+		return horarioApertura;
 	}
 
-	public void setHorario(String horario) {
-		this.horario = horario;
+	public void setHorarioApertura(int horarioApertura) {
+		this.horarioApertura = horarioApertura;
+	}
+	
+	public int getHorarioCierre() {
+		return horarioCierre;
+	}
+
+	public void setHorarioCierre(int horarioCierre) {
+		this.horarioCierre = horarioCierre;
 	}
 
 	public String getDireccion() {
@@ -69,7 +92,7 @@ public class Restaurante {
 
 	@Override
 	public String toString() {
-		return "Restaurante [nombre=" + nombre + ", horario=" + horario + ", direccion=" + direccion + ", telefono="
+		return "Restaurante [id_restaurante=" + id_restaurante + "nombre=" + nombre + ", horarioApertura=" + horarioApertura + ", horarioCierre=" +horarioCierre+ ", direccion=" + direccion + ", telefono="
 				+ telefono + ", tipocomida=" + tipocomida + "]";
 	}
 	
