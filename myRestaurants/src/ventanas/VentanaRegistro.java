@@ -163,7 +163,7 @@ public class VentanaRegistro extends JFrame{
 					String crearTelefono = textTelefono.getPassword().toString();//Cambiar
 					
 					/*					  
-					Connection conexiones = BdMyRestaurants.conectar();
+					Connection conexion = BdMyRestaurants.conectar();
 					Statement st = null;
 	try {
 		st = conexion.createStatement();
