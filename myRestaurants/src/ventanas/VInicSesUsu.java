@@ -68,12 +68,21 @@ public class VInicSesUsu extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaMenu v = new VentanaMenu();
-				v.setSize(1000, 600);
-				v.setVisible(true);
-				v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				v.setTitle("MyRestaurant");
-				dispose();				
+				String correo = textCorreo.getText();
+				
+				
+				if(correo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
++ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")&& textContrasenya.getPassword().length != 0 ){//linkearlo con la bd
+					VentanaMenu v = new VentanaMenu();
+					v.setSize(1000, 600);
+					v.setVisible(true);
+					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					v.setTitle("MyRestaurant");
+					dispose();	
+				} else {
+					JOptionPane.showMessageDialog(rootPane, "Introduce todos los datos por favor!");
+				}
+							
 			}
 		});
 		

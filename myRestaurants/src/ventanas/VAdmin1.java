@@ -127,7 +127,7 @@ public class VAdmin1 extends JFrame{
 				}
 			}));
 		  
-		  //Boton atrï¿½s
+		  //Boton atrás
 		  salir.addActionListener((new ActionListener() {
 				
 				@Override

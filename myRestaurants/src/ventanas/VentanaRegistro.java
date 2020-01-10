@@ -18,7 +18,7 @@ public class VentanaRegistro extends JFrame{
 	private JTextField textUsuario;
 	private JTextField textCorreo;
 	private JPasswordField textContrasenya;
-	private JTextField textTelefono;
+	private JPasswordField textTelefono;
 	private JRadioButton usuario;
 	private JRadioButton gestor;
 	private JButton botonRegistro;
@@ -124,8 +124,9 @@ public class VentanaRegistro extends JFrame{
 		textContrasenya.setBounds(250, 200, 300, 30);
 		
 		//Teléfono
-		textTelefono = new JTextField("Ejemplo: 600 000 000");
+		textTelefono = new JPasswordField("Ejemplo: 600 000 000");
 		textTelefono.setBounds(250, 125, 300, 30);
+		textTelefono.setEchoChar((char)0);
 		escrito4 = false;
 		textTelefono.addMouseListener(new MouseAdapter() {
 			@Override
@@ -150,7 +151,7 @@ public class VentanaRegistro extends JFrame{
 		errorContraseña.setBounds(250, 230, 150, 30);
 		errorContraseña.setForeground(Color.RED);
 		
-		
+		//Falta linkearlo con la BD
 		JButton botonRegistro = new JButton("Registrarse ");
 		botonRegistro.addActionListener(new ActionListener() {
 			
@@ -159,46 +160,45 @@ public class VentanaRegistro extends JFrame{
 				
 					String crearUsuario = textUsuario.getText();
 					String crearCorreo = textCorreo.getText();
-					char[] crearContrasenya = contrasenya.getPassword();
-					String crearTelefono = textTelefono.getText();
+					String crearTelefono = textTelefono.getPassword().toString();//Cambiar
 					
-					errorNombre.setText("");
-					errorEmail.setText("");
-					errorContraseña.setText("");
-					
-										  
+					/*					  
 					Connection conexion = BdMyRestaurants.conectar();
 					Statement st = null;
 	try {
 		st = conexion.createStatement();
 	} catch (SQLException e1) {
 		e1.printStackTrace();
-	
-
-	if (crearCorreo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
-+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && !crearCorreo.isEmpty() && !crearContrasenya.equals("") && crearTelefono.matches("^[0-9]*$") && BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true){
-		errorNombre.setText("");
-		errorEmail.setText("");
-		errorContraseña.setText("");
-	} else if (!crearUsuario.matches("^[a-zA-Z]*$") || crearUsuario.isEmpty()) {
-		errorNombre.setText("Este nombre no es válido");
-		JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
-
-	}else if (!crearCorreo.matches(
-			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
-			|| crearCorreo.isEmpty()
-			|| BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
-		errorEmail.setText("El Email no es válido");
-		JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
-
-	}else if (crearContrasenya.equals("")) {
-		errorContraseña.setText("La Contraseña no es válida");
-		JOptionPane.showMessageDialog(rootPane, "POr favor introduzca los datos correctamente");
-
 	}
-	}JOptionPane.showMessageDialog(rootPane, "Creado correctamente!");
+*/
+	if (crearUsuario.matches("^[A-Za-z0-9]*$") && crearCorreo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")&&(textContrasenya.getPassword().length!=0) && crearTelefono.matches("[0-9]") &&
+			 usuario.isSelected()&& crearTelefono.length() == 9){ 
+			//&&(BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true)){
+		VentanaMenu v = new VentanaMenu();
+		v.setSize(1000, 600);
+		v.setVisible(true);
+		v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		v.setTitle("MyRestaurant");
+		dispose();
+	}else if (crearUsuario.matches("^[a-zA-Z]*$") && crearCorreo.matches("^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)*@\" +"
+			+ " \"[A-Za-z0-9-]+(\\\\.[A-Za-z0-9]+)*(\\\\.[A-Za-z]{2,})$")&&(textContrasenya.getPassword().length!=0) && crearTelefono.matches("[0-9]") &&
+			  gestor.isSelected() && crearTelefono.length()==9){ 
+			//&&(BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true)){
+		VAdmin1 v = new VAdmin1();
+		v.setSize(1000, 600);
+		v.setVisible(true);
+		v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		v.setTitle("MyRestaurant");
+		dispose();
+	}else {
+		JOptionPane.showMessageDialog(rootPane, "Introduzca los datos correctamente!");
+	}
+
+	
+	}//JOptionPane.showMessageDialog(rootPane, "Creado correctamente!");
 					
-				}
+				
 			
 			
 			});

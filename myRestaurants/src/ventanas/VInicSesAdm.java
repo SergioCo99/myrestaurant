@@ -68,12 +68,32 @@ public class VInicSesAdm extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				String correo = textCorreo.getText();
+				
+				
+				if(correo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
++ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")&& textContrasenya.getPassword().length != 0 ){//arreglar
+					VAdmin1 v54 = new VAdmin1 ();
+					v54.setSize(1000, 600);
+					v54.setVisible(true);
+					v54.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					v54.setTitle("MyRestaurant");
+					dispose();
+				} else {
+					JOptionPane.showMessageDialog(rootPane, "Introduce todos los datos por favor!");
+				}
+				
+				
+				
+				
+				/*
 				VAdmin1 v54 = new VAdmin1 ();
 				v54.setSize(1000, 600);
 				v54.setVisible(true);
 				v54.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				v54.setTitle("MyRestaurant");
 				dispose();
+				*/
 			}
 		});
 		
