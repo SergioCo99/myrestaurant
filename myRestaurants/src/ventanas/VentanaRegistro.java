@@ -3,7 +3,7 @@ package ventanas;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import baseDeDatos.BdMyRestaurants;
+//import baseDeDatos.BdMyRestaurants;
 
 
 

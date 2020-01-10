@@ -1,4 +1,4 @@
-package baseDeDatos;
+/*package baseDeDatos;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -94,3 +94,4 @@ public class BdMyRestaurantsTest {
 
 
 }
+*/

@@ -1,4 +1,4 @@
-package baseDeDatos;
+/*package baseDeDatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,13 +14,30 @@ import usuario.TipoUsuario;
 
 public class BdMyRestaurants {
 	
-	//NO SE COMO COMPARAR SI ES GESTOR O ES USUARIO estarï¿½a bien hacerlo
-	private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
+	private static boolean LOGGING = true;
 
-	private static final String URL = "jdbc:mysql://localhost:3306/MyRestaurants.sql";//Falta meter la bd correctamente
-	private static final String USUARIO = "root";//falta la contraseña
-	private static final String CLAVE = "1234Clave";
+	public static void main(String[] args) {
 
+		Connection con =null;
+		try {
+			Class.forName("org.sqlite.JDBC");
+			con= DriverManager.getConnection("DBProg3.db");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+	}
+	public static Connection initBD( String nombreBD ) {
+		try {
+		    Class.forName("org.sqlite.JDBC");
+		    Connection con = DriverManager.getConnection("myrestaurant.db");
+			log( Level.INFO, "Conectada base de datos ", null );
+		    return con;
+		} catch (ClassNotFoundException | SQLException e) {
+			log( Level.SEVERE, "Error en conexiÃ³n de base de datos " + nombreBD, e );
+			return null;
+		}
+	}
 
 	public static Connection conectar() {
 		try {
@@ -177,5 +194,5 @@ public class BdMyRestaurants {
 }
 
 
-
+*/
 
