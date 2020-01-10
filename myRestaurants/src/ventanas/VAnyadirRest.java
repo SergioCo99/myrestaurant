@@ -3,6 +3,7 @@ package ventanas;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -30,7 +31,10 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 public class VAnyadirRest extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -39,6 +43,8 @@ public class VAnyadirRest extends JFrame {
 	private JSpinner textHoraCierre;
 	private JTextField textDireccion;
 	private JTextField textTelefono;
+	private JButton anyadir;
+
 	//Tipos comida
 	private JCheckBox comidaChina;
 	private JCheckBox comidaCasera;
@@ -74,16 +80,17 @@ public class VAnyadirRest extends JFrame {
 		
 		
 		JPanel izquierda = new JPanel(new GridLayout(14,2));
-	
+		JPanel panelBoton = new JPanel(new GridLayout(7,2));
+
 		// set panel colors
 		izquierda.setOpaque(false);
-		
+		panelBoton.setOpaque(false);
 		
 		Container cp = this.getContentPane();
 		
 		cp.setLayout(new BorderLayout());
 		cp.add(izquierda, BorderLayout.WEST);
-		
+		cp.add(panelBoton, BorderLayout.EAST);
 		
 		
 		textNombreRest = new JTextField("Ejemplo: Restaurante Manolo");
@@ -200,6 +207,29 @@ public class VAnyadirRest extends JFrame {
 		errorTelefono.setBounds(250, 230, 150, 30);
 		errorTelefono.setForeground(Color.RED);
 		
+		anyadir = new JButton("Añadir Restaurante");
+		//anyadir.setMaximumSize(new Dimension(150,60));
+		anyadir.setForeground(Color.BLACK);
+		anyadir.setBackground(Color.WHITE);
+	    Border line = new LineBorder(Color.BLACK);
+		Border margin = new EmptyBorder(5, 5, 5, 5);
+	    Border compound = new CompoundBorder(line, margin);
+	    anyadir.setBorder(compound);
+		
+		anyadir.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				
+			}
+		}
+		);
+		
+		panelBoton.add(new JLabel("                                "));
+		panelBoton.add(new JLabel("                                "));
+		panelBoton.add(new JLabel("                                "));
+
+		panelBoton.add(anyadir, BorderLayout.WEST);
 		//CONECTAR CON BASE DE DATOS
 		
 		
@@ -212,9 +242,9 @@ public class VAnyadirRest extends JFrame {
 		izquierda.add(textHoraApertura);
 		izquierda.add(new JLabel("  Hora de cierre:"));
 		izquierda.add(textHoraCierre);
-		izquierda.add(new JLabel("  Direcciï¿½n:"));
+		izquierda.add(new JLabel("  Dirección:"));
 		izquierda.add(textDireccion);
-		izquierda.add(new JLabel("  Telï¿½fono:"));
+		izquierda.add(new JLabel("  Teléfono:"));
 		izquierda.add(textTelefono);
 		izquierda.add(new JLabel("  Tipo de comida:"));
 		izquierda.add(panelTipoComida);
