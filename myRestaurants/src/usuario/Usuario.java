@@ -9,12 +9,11 @@ public class Usuario {
 	private String contrasenya;
 	private int telefono;
 	//private int tarjetaCredito;
-	private String direccion;
 	private TipoUsuario tipo;
 	
 	
 	public Usuario( String nombreUsuario, String correo, String contrasenya, int telefono,
-			 String direccion, TipoUsuario tipo) {
+			  TipoUsuario tipo) {
 		super();
 		this.id_usuario = contador;
 		contador++;
@@ -23,7 +22,6 @@ public class Usuario {
 		this.contrasenya = contrasenya;
 		this.telefono = telefono;
 
-		this.direccion = direccion;
 		this.tipo = tipo;
 	}
 	public Usuario() {
@@ -34,7 +32,6 @@ public class Usuario {
 		this.nombreUsuario = "";
 		this.contrasenya = "";
 		this.telefono = 0;
-		this.direccion = "";
 		this.tipo = null;
 	}
 	public int getId_usuario() {
@@ -69,12 +66,7 @@ public class Usuario {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
-	public String getDireccion() {
-		return direccion;
-	}
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
+	
 	public TipoUsuario getTipo() {
 		return tipo;
 	}
@@ -84,7 +76,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id_usuario=" + id_usuario + ", correo=" + correo + ", nombreUsuario=" + nombreUsuario
-				+ ", contrasenya=" + contrasenya + ", telefono=" + telefono + ", direccion=" + direccion + ", tipo="
+				+ ", contrasenya=" + contrasenya + ", telefono=" + telefono + ",  tipo="
 				+ tipo + "]";
 	}
 	
