@@ -220,7 +220,7 @@ public class VAnyadirRest extends JFrame {
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				
+				JOptionPane.showMessageDialog(rootPane, "Restaurante añadido correctamente");
 			}
 		}
 		);

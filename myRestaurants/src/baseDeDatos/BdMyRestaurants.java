@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
+import java.util.logging.*;
+
 
 import javax.swing.JOptionPane;
 
@@ -15,41 +17,69 @@ import usuario.TipoUsuario;
 public class BdMyRestaurants {
 	
 	private static boolean LOGGING = true;
-
-	public static void main(String[] args) {
-
-		Connection con =null;
-		try {
-			Class.forName("org.sqlite.JDBC");
-			con= DriverManager.getConnection("DBProg3.db");
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
-	}
+	private static Exception lastError = null;
+*/
+	/** Inicializa una BD SQLITE y devuelve una conexión con ella
+	 * @param nombreBD	Nombre de fichero de la base de datos
+	 * @return	Conexión con la base de datos indicada. Si hay algún error, se devuelve null
+	 */
+/*
 	public static Connection initBD( String nombreBD ) {
 		try {
 		    Class.forName("org.sqlite.JDBC");
-		    Connection con = DriverManager.getConnection("myrestaurant.db");
-			log( Level.INFO, "Conectada base de datos ", null );
+		    Connection con = DriverManager.getConnection("jdbc:sqlite:" + nombreBD );
+			log( Level.INFO, "Conectada base de datos " + nombreBD, null );
 		    return con;
 		} catch (ClassNotFoundException | SQLException e) {
-			log( Level.SEVERE, "Error en conexiÃ³n de base de datos " + nombreBD, e );
+			lastError = e;
+			log( Level.SEVERE, "Error en conexión de base de datos " + nombreBD, e );
+			e.printStackTrace();
 			return null;
 		}
 	}
-
-	public static Connection conectar() {
+	*/
+	
+	/** Devuelve statement para usar la base de datos
+	 * @param con	Conexión ya creada y abierta a la base de datos
+	 * @return	sentencia de trabajo si se crea correctamente, null si hay cualquier error
+	 */
+/*
+	public static Statement usarBD( Connection con ) {
 		try {
-			Class.forName(CONTROLADOR);
-			Connection conexion = DriverManager.getConnection(URL,USUARIO,CLAVE);
-			ventanas.VentanaRegistro.BDLogger.log(Level.INFO, "Te has conectado");
-		}catch(ClassNotFoundException | SQLException e) {
-			ventanas.VentanaRegistro.BDLogger.log(Level.INFO, "ERROR en la conexion!",e);
+			Statement statement = con.createStatement();
+			statement.setQueryTimeout(30);  // poner timeout 30 msg
+			return statement;
+		} catch (SQLException e) {
+			lastError = e;
+			log( Level.SEVERE, "Error en uso de base de datos", e );
 			e.printStackTrace();
+			return null;
 		}
-		return null;
 	}
+*/
+	/** Crea las tablas de la base de datos. Si ya existen, las deja tal cual
+	 * @param con	Conexión ya creada y abierta a la base de datos
+	 * @return	sentencia de trabajo si se crea correctamente, null si hay cualquier error
+	 */
+/*
+	public static Statement usarCrearTablasBD( Connection con ) {
+		try {
+			Statement statement = con.createStatement();
+			statement.setQueryTimeout(30);  // poner timeout 30 msg
+			try {
+				statement.executeUpdate("create table arbol " +
+					"(zona string, latitud double, longitud double, nombre string, edad int, color int)");
+			} catch (SQLException e) {} // Tabla ya existe. Nada que hacer
+			log( Level.INFO, "Creada base de datos", null );
+			return statement;
+		} catch (SQLException e) {
+			lastError = e;
+			log( Level.SEVERE, "Error en creación de base de datos", e );
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	
 	public static void cerrarBD(final Connection con, final Statement st) {
 		try {
@@ -192,7 +222,4 @@ public class BdMyRestaurants {
 	}
 	
 }
-
-
 */
-
