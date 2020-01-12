@@ -25,12 +25,12 @@ public class VentanaMenu extends JFrame{
 	private JLabel relojito;
 	public final static int ONE_SECOND = 1000;
 	private final SimpleDateFormat clockFormat = new SimpleDateFormat("H:mm:ss");
-	private JCheckBox comidaChina;
-	private JCheckBox comidaCasera;
-	private JCheckBox comidaHamburgueseria;
-	private JCheckBox comidaPizzeria;
-	private JCheckBox comidaSidreria;
-	private JCheckBox comidaChuletas;
+	private JRadioButton comidaChina;
+	private JRadioButton comidaCasera;
+	private JRadioButton comidaHamburgueseria;
+	private JRadioButton comidaPizzeria;
+	private JRadioButton comidaSidreria;
+	private JRadioButton comidaChuletas;
 	private JButton buscar;
 	public VentanaMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -152,38 +152,58 @@ public class VentanaMenu extends JFrame{
 		izquierda.add(new JLabel("Seleccione el tipo de comida que desea:"));
 		izquierda.add(new JLabel("                                "));
 
-		comidaChuletas = new JCheckBox("Chuletas");
-		izquierda.add(comidaChuletas);
+		
+		/*
+		 * 
+		 * JRadioButton r1=new JRadioButton("A) Male");    
+JRadioButton r2=new JRadioButton("B) Female");    
+r1.setBounds(75,50,100,30);    
+r2.setBounds(75,100,100,30);    
+ButtonGroup bg=new ButtonGroup();    
+bg.add(r1);bg.add(r2);    
+f.add(r1);f.add(r2);  */
+		JRadioButton comidaChuletas = new JRadioButton("Chuletas");
+		JRadioButton comidaChina = new JRadioButton("China");
+		JRadioButton comidaCasera = new JRadioButton("Comida Casera");
+		JRadioButton comidaHamburgueseria = new JRadioButton("Hamburguesas");
+		JRadioButton comidaPizzeria = new JRadioButton("Pizza");
+		JRadioButton comidaSidreria = new JRadioButton("Sidreria");
 		comidaChuletas.setBounds(400, 210, 150, 40);
+		comidaChina.setBounds(200, 70, 150, 40);
+		comidaCasera.setBounds(400, 70, 150, 40);
+		comidaHamburgueseria.setBounds(200, 140, 150, 40);
+		comidaPizzeria.setBounds(400, 140, 150, 40);
+		comidaSidreria.setBounds(200, 210, 150, 40);
+		ButtonGroup bg = new ButtonGroup();
+		bg.add(comidaChuletas);
+		bg.add(comidaChina);
+		bg.add(comidaCasera);
+		bg.add(comidaHamburgueseria);
+		bg.add(comidaPizzeria);
+		bg.add(comidaSidreria);
+		
+
+		
+		izquierda.add(comidaChuletas);
 		//comidaChuletas.setBackground(Color.RGBtoHSB(r, g, b, hsbvals));
 		comidaChuletas.setOpaque(false);
 		
-		comidaChina = new JCheckBox("China");
 		izquierda.add(comidaChina);
-		comidaChina.setBounds(200, 70, 150, 40);
 		comidaChina.setOpaque(false);
 
 
-		comidaCasera = new JCheckBox("Comida Casera");
 		izquierda.add(comidaCasera);
-		comidaCasera.setBounds(400, 70, 150, 40);
 		comidaCasera.setOpaque(false);
 
 		
-		comidaHamburgueseria = new JCheckBox("Hamburguesas");
 		izquierda.add(comidaHamburgueseria);
-		comidaHamburgueseria.setBounds(200, 140, 150, 40);
 		comidaHamburgueseria.setOpaque(false);
 
 	
-		comidaPizzeria = new JCheckBox("Pizza");
 		izquierda.add(comidaPizzeria);
-		comidaPizzeria.setBounds(400, 140, 150, 40);
 		comidaPizzeria.setOpaque(false);
 
-		comidaSidreria = new JCheckBox("Sidreria");
 		izquierda.add(comidaSidreria);
-		comidaSidreria.setBounds(200, 210, 150, 40);
 		comidaSidreria.setOpaque(false);
 		
 		izquierda.add(new JLabel("Precio hasta:"));
@@ -208,6 +228,57 @@ public class VentanaMenu extends JFrame{
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				if(comidaChuletas.isSelected()) {
+					VMenuChuletas v = new VMenuChuletas();
+					v.setSize(1000, 600);
+					v.setVisible(true);
+					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					v.setTitle("MyRestaurant");
+					dispose();
+				}
+				
+				if(comidaHamburgueseria.isSelected()) {
+					VMenuHamburguesas v = new VMenuHamburguesas();
+					v.setSize(1000, 600);
+					v.setVisible(true);
+					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					v.setTitle("MyRestaurant");
+					dispose();
+				}
+				
+				if(comidaChina.isSelected()) {
+					VMenuChina v = new VMenuChina();
+					v.setSize(1000, 600);
+					v.setVisible(true);
+					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					v.setTitle("MyRestaurant");
+					dispose();
+				}
+				if(comidaCasera.isSelected()) {
+					VMenuCasera v = new VMenuCasera();
+					v.setSize(1000, 600);
+					v.setVisible(true);
+					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					v.setTitle("MyRestaurant");
+					dispose();
+				}
+				
+				if(comidaPizzeria.isSelected()) {
+					VMenuPizza v = new VMenuPizza();
+					v.setSize(1000, 600);
+					v.setVisible(true);
+					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					v.setTitle("MyRestaurant");
+					dispose();
+				}
+				if(comidaSidreria.isSelected()) {
+					VMenuPizza v = new VMenuPizza();
+					v.setSize(1000, 600);
+					v.setVisible(true);
+					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					v.setTitle("MyRestaurant");
+					dispose();
+				}
 				
 			}
 		}
