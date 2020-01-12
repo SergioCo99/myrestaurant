@@ -52,7 +52,7 @@ public class VMisRestaurantes extends JFrame {
 		
 		String[]p1= {"Como en Casa", "8", "23", "Calle Agapito", "900 000 000", "ComidaCasera"};
 		String[]p2= {"Paco", "10", "22", "Calle Mayor", "900 000 001", "Chuletas"};
-		String[]p3= {"MCarrones", "14", "23", "Calle Colesterol", "900 000 002", "Hamburgueseria"};
+		String[]p3= {"MCarrones", "14", "23", "Calle Colesterol", "900 000 008", "Hamburgueseria"};
 		
 		modelo.addRow(p1);
 		modelo.addRow(p2);

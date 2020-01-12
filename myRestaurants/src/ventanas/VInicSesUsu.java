@@ -75,17 +75,11 @@ public class VInicSesUsu extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				String correo = textCorreo.getText();
 				
-				Connection conexion = BdMyRestaurants.initBD();
-				Statement st = null;
-				try {
-					st = conexion.createStatement();
-				} catch (SQLException e1) {
-
-				}
+			
 				
 				if(correo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")&& textContrasenya.getPassword().length != 0 ){//linkearlo con la bd
-					if(BdMyRestaurants.logIn(st, textCorreo.getText(), textContrasenya.getPassword().toString()) == true) {
+					 
 						VentanaMenu v = new VentanaMenu();
 						v.setSize(1000, 600);
 						v.setVisible(true);
@@ -98,11 +92,9 @@ public class VInicSesUsu extends JFrame{
 					}
 					
 					
-				} else {
-					JOptionPane.showMessageDialog(rootPane, "Introduce todos los datos por favor!");
-				}
-							
 			}
+							
+			
 		});
 		
 		JButton botonAtras = new JButton("Atras");
