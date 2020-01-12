@@ -75,48 +75,39 @@ public class VInicSesAdm extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String correo = textCorreo.getText();
-				
-				Connection conexion = BdMyRestaurants.initBD();
 				Statement st = null;
-				try {
-					st = conexion.createStatement();
-				} catch (SQLException e1) {
-
-				}
 				
-				if(correo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
-							&& textContrasenya.getPassword().length != 0 ){//arreglar
+			
+				
+				if(correo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
++ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")&& textContrasenya.getPassword().length != 0 ){
 					
-		
-					if (BdMyRestaurants.logIn(st, textCorreo.getText(), textContrasenya.getPassword().toString()) == true) {//esto es la conexion a la bd pero da mal
-						
-						VAdmin1 v54 = new VAdmin1 ();
-						v54.setSize(1000, 600);
-						v54.setVisible(true);
-						v54.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-						v54.setTitle("MyRestaurant");
-						dispose();
-					} else {
-						JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrectos!");
+						if(BdMyRestaurants.logIn(st, textCorreo.getText(), textContrasenya.getPassword().toString()) == true) {//esto es la conexion a la bd pero da mal
+					if( BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
+							VAdmin1 v = new VAdmin1();
+							v.setSize(1000, 600);
+							v.setVisible(true);
+							v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+							v.setTitle("MyRestaurant");
+							dispose();	
+						}else {
+							JOptionPane.showMessageDialog(rootPane, "Correo o/y contraseña incorrectas");
+
+						}
+				
+					}	
+					else {
+						JOptionPane.showMessageDialog(rootPane, "Este administrador no existe!");
 					}
 					
+				
 					
-				} else {
-					JOptionPane.showMessageDialog(rootPane, "Introduce todos los datos por favor!");
-				}
-				
-				
-				
-				
-				/*
-				VAdmin1 v54 = new VAdmin1 ();
-				v54.setSize(1000, 600);
-				v54.setVisible(true);
-				v54.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				v54.setTitle("MyRestaurant");
-				dispose();
-				*/
 			}
+			else {
+				JOptionPane.showMessageDialog(rootPane, "Introduzca los datos correctamente!");
+			} 
+			}				
+			
 		});
 		
 		JButton botonAtras = new JButton("Atras");

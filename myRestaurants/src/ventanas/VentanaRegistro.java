@@ -182,7 +182,7 @@ public class VentanaRegistro extends JFrame{
 						v.setTitle("MyRestaurant");
 						dispose();
 					}
-					else {
+					 else {
 						JOptionPane.showMessageDialog(rootPane, "Esta cuenta ya existe");
 					}
 					
@@ -197,8 +197,7 @@ public class VentanaRegistro extends JFrame{
 					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 					v.setTitle("MyRestaurant");
 					dispose();
-					}
-					else {
+					}else {
 						JOptionPane.showMessageDialog(rootPane, "Esta cuenta ya existe");
 
 					}

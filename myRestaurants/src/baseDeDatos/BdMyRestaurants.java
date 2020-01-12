@@ -20,20 +20,27 @@ public class BdMyRestaurants {
 	private static boolean LOGGING = true;
 	private static Exception lastError = null;
 
+	private static final String CONTROLADOR = "com.mysql.jdbc.Driver";
+	private static final String URL =  "jdbc:mysql://localhost:3306/myrestaurants?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	private static final String USUARIO = "root";
+	private static final String CLAVE = "1234Clave";
 
 	public static Connection initBD() {
+
 		try {
-		    Class.forName("org.sqlite.JDBC");
-		    Connection con = DriverManager.getConnection("jdbc:sqlite: myrestaurant.db");
-			log( Level.INFO, "Conectada base de datos " + "myrestaurant.db", null );
+			Class.forName(CONTROLADOR);
+			Connection con = DriverManager.getConnection(URL, USUARIO, CLAVE);
+			log( Level.INFO, "Conectada base de datos " + "myrestaurants.sql", null );
 		    return con;
 		} catch (ClassNotFoundException | SQLException e) {
 			lastError = e;
-			log( Level.SEVERE, "Error en conexión de base de datos " + "myrestaurant.db", e );
+			log( Level.SEVERE, "Error en conexión de base de datos " + "myrestaurants.sql", e );
 			e.printStackTrace();
 			return null;
 		}
-	}
+	
+
+}
 	
 	
 	/** Devuelve statement para usar la base de datos
@@ -83,7 +90,7 @@ public class BdMyRestaurants {
 			stm = cn.createStatement();
 			rs = stm.executeQuery("SELECT * FROM usuario");
 			ps = cn.prepareStatement(
-					"INSERT INTO usuario(id_usuario, correo, nombreUsuario, contrasenya, direccion, telefono, tipo) VALUES(?,?,?,?,?,?)");
+					"INSERT INTO usuario(id_usuario, nombreUsuario, correo, contrasenya, telefono, tipo) VALUES(?,?,?,?,?,?)");
 
 			ps.setInt(1, id_usuario);
 			ps.setString(1, nombreUsuario);
@@ -161,7 +168,7 @@ public class BdMyRestaurants {
 			return true;
 		}
 	}
-	public static void crearRestaurante(String nombre, double horarioApertura, double horarioCierre, String direccion, int telefono,
+	public static void crearRestaurante(int id_restaurante, String nombre, double horarioApertura, double horarioCierre, String direccion, int telefono,
 			TipoComida tipocomida){
 		BdMyRestaurants conexion = new BdMyRestaurants();
 		Connection cn = null;
@@ -175,14 +182,15 @@ public class BdMyRestaurants {
 			stm = cn.createStatement();
 			rs = stm.executeQuery("SELECT * FROM restaurante");
 			ps = cn.prepareStatement(
-					"INSERT INTO restaurante(nombre, horarioApertura, horarioCierre, direccion, telefono, tipoComida) VALUES(?,?,?,?,?,?)");
+					"INSERT INTO restaurante(id_restaurante, nombre, horarioApertura, horarioCierre, direccion, telefono, tipoComida) VALUES(?,?,?,?,?,?)");
 
-			ps.setString(1, nombre);
-			ps.setDouble(2, horarioApertura);
-			ps.setDouble(3, horarioCierre);
-			ps.setString(4, direccion);
-			ps.setInt(5, telefono);
-			ps.setString(6, tipocomida.name());
+			ps.setInt(1, id_restaurante);
+			ps.setString(2, nombre);
+			ps.setDouble(3, horarioApertura);
+			ps.setDouble(4, horarioCierre);
+			ps.setString(5, direccion);
+			ps.setInt(6, telefono);
+			ps.setString(7, tipocomida.name());
 
 			int res = ps.executeUpdate();
 			

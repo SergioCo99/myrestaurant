@@ -64,7 +64,7 @@ public class BdMyRestaurantsTest {
 		Statement st;
 		try {
 			st = conexion.createStatement();
-			BdMyRestaurants.crearUsuario(0014, "jokin87", "jokin87@gmail.com", "123Deusto", 685740319, TipoUsuario.CLIENTE);
+			BdMyRestaurants.crearUsuario(1, "jokin87", "jokin87@gmail.com", "123Deusto", 685740319, TipoUsuario.CLIENTE);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -86,7 +86,7 @@ public class BdMyRestaurantsTest {
 		Statement st;
 		try {
 			st = conexion.createStatement();
-			BdMyRestaurants.crearRestaurante("Como en Casa", 8.00, 23.00, "Calle Agapito", 900000000, TipoComida.COMIDACASERA);
+			BdMyRestaurants.crearRestaurante(1, "Como en Casa", 8.00, 23.00, "Calle Agapito", 900000000, TipoComida.COMIDACASERA);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -1,5 +1,0 @@
-contraseña bd: deusto
-
-FALTA PONER ENUM GESTOR/CLIENTE (usuario)
-FALTA PONER ENUM TIPOCOMIDA (restaurante)
-Estos enum no los he conseguido porque con SQliteStudio es un poco complejo
