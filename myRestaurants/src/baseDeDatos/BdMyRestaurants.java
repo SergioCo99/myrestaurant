@@ -1,4 +1,4 @@
-/*package baseDeDatos;
+package baseDeDatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,11 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
 import java.util.logging.*;
 
 
 import javax.swing.JOptionPane;
+
 
 import usuario.TipoUsuario;
 
@@ -18,32 +18,28 @@ public class BdMyRestaurants {
 	
 	private static boolean LOGGING = true;
 	private static Exception lastError = null;
-*/
-	/** Inicializa una BD SQLITE y devuelve una conexión con ella
-	 * @param nombreBD	Nombre de fichero de la base de datos
-	 * @return	Conexión con la base de datos indicada. Si hay algún error, se devuelve null
-	 */
-/*
-	public static Connection initBD( String nombreBD ) {
+
+
+	public static Connection initBD() {
 		try {
 		    Class.forName("org.sqlite.JDBC");
-		    Connection con = DriverManager.getConnection("jdbc:sqlite:" + nombreBD );
-			log( Level.INFO, "Conectada base de datos " + nombreBD, null );
+		    Connection con = DriverManager.getConnection("jdbc:sqlite: myrestaurant.db");
+			log( Level.INFO, "Conectada base de datos " + "myrestaurant.db", null );
 		    return con;
 		} catch (ClassNotFoundException | SQLException e) {
 			lastError = e;
-			log( Level.SEVERE, "Error en conexión de base de datos " + nombreBD, e );
+			log( Level.SEVERE, "Error en conexión de base de datos " + "myrestaurant.db", e );
 			e.printStackTrace();
 			return null;
 		}
 	}
-	*/
+	
 	
 	/** Devuelve statement para usar la base de datos
 	 * @param con	Conexión ya creada y abierta a la base de datos
 	 * @return	sentencia de trabajo si se crea correctamente, null si hay cualquier error
 	 */
-/*
+
 	public static Statement usarBD( Connection con ) {
 		try {
 			Statement statement = con.createStatement();
@@ -56,12 +52,11 @@ public class BdMyRestaurants {
 			return null;
 		}
 	}
-*/
 	/** Crea las tablas de la base de datos. Si ya existen, las deja tal cual
 	 * @param con	Conexión ya creada y abierta a la base de datos
 	 * @return	sentencia de trabajo si se crea correctamente, null si hay cualquier error
 	 */
-/*
+
 	public static Statement usarCrearTablasBD( Connection con ) {
 		try {
 			Statement statement = con.createStatement();
@@ -103,7 +98,7 @@ public class BdMyRestaurants {
 		PreparedStatement ps;
 
 		try {
-			cn = conexion.conectar();
+			cn = conexion.initBD();
 			stm = cn.createStatement();
 			rs = stm.executeQuery("SELECT * FROM Usuario");
 			ps = cn.prepareStatement(
@@ -220,6 +215,26 @@ public class BdMyRestaurants {
 			e.printStackTrace();
 		}
 	}
+	private static Logger logger = null;
+	public static void setLogger( Logger logger ) {
+		BdMyRestaurants.logger = logger;
+	}
+
+	private static void log( Level level, String msg, Throwable excepcion ) {
+		if (logger==null) {  
+			logger = Logger.getLogger( BdMyRestaurants.class.getName() ); 
+			logger.setLevel( Level.ALL );  
+			try {
+				
+				logger.addHandler( new FileHandler( "BDLogger.xml", true ) ); 
+			} catch (Exception e) {
+				logger.log( Level.SEVERE, "No se pudo crear fichero de log", e );
+			}
+		}
+		if (excepcion==null)
+			logger.log( level, msg );
+		else
+			logger.log( level, msg, excepcion );
+	}
 	
 }
-*/

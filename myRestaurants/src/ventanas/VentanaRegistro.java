@@ -3,6 +3,9 @@ package ventanas;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import baseDeDatos.BdMyRestaurants;
+
+
 //import baseDeDatos.BdMyRestaurants;
 
 
@@ -160,26 +163,47 @@ public class VentanaRegistro extends JFrame{
 				String nombre = textUsuario.getText();
 				String email = textCorreo.getText();
 				String telefono = textTelefono.getText();
+				
+				Connection conexion = BdMyRestaurants.initBD();
+				Statement st = null;
+				try {
+					st = conexion.createStatement();
+				} catch (SQLException e1) {
+
+				}
 			
 				if(nombre.matches("^[A-Za-z0-9]*$") && email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
 						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && (textContrasenya.getPassword().length != 0)
-						&& telefono.matches("^[0-9]*$") && telefono.length()==9 && usuario.isSelected()) {
-					VentanaMenu v = new VentanaMenu();
-					v.setSize(1000, 600);
-					v.setVisible(true);
-					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-					v.setTitle("MyRestaurant");
-					dispose();
+						&& telefono.matches("^[0-9]*$") && telefono.length()==9 && usuario.isSelected()){
+					if(BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
+						VentanaMenu v = new VentanaMenu();
+						v.setSize(1000, 600);
+						v.setVisible(true);
+						v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+						v.setTitle("MyRestaurant");
+						dispose();
+					}
+					else {
+						JOptionPane.showMessageDialog(rootPane, "Esta cuenta ya existe");
+					}
+					
 				}
 				if(nombre.matches("^[A-Za-z0-9]*$") && email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
 						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && (textContrasenya.getPassword().length != 0)
 						&& telefono.matches("^[0-9]*$") && telefono.length()==9 && gestor.isSelected()) {
-					VAdmin1 v = new VAdmin1();
+					if( BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
+						VAdmin1 v = new VAdmin1();
 					v.setSize(1000, 600);
 					v.setVisible(true);
 					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 					v.setTitle("MyRestaurant");
 					dispose();
+					}
+					else {
+						JOptionPane.showMessageDialog(rootPane, "Esta cuenta ya existe");
+
+					}
+					
 				}else {
 					JOptionPane.showMessageDialog(rootPane, "Introduzca los datos correctamente.");
 				}

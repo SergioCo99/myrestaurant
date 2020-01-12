@@ -3,8 +3,13 @@ package ventanas;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import baseDeDatos.BdMyRestaurants;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class VInicSesUsu extends JFrame{
 
@@ -70,15 +75,29 @@ public class VInicSesUsu extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				String correo = textCorreo.getText();
 				
+				Connection conexion = BdMyRestaurants.initBD();
+				Statement st = null;
+				try {
+					st = conexion.createStatement();
+				} catch (SQLException e1) {
+
+				}
 				
 				if(correo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")&& textContrasenya.getPassword().length != 0 ){//linkearlo con la bd
-					VentanaMenu v = new VentanaMenu();
-					v.setSize(1000, 600);
-					v.setVisible(true);
-					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-					v.setTitle("MyRestaurant");
-					dispose();	
+					if(BdMyRestaurants.logIn(st, textCorreo.getText(), textContrasenya.getPassword().toString()) == true) {
+						VentanaMenu v = new VentanaMenu();
+						v.setSize(1000, 600);
+						v.setVisible(true);
+						v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+						v.setTitle("MyRestaurant");
+						dispose();	
+					}else {
+						JOptionPane.showMessageDialog(rootPane, "Contraseña incorrecta!");
+
+					}
+					
+					
 				} else {
 					JOptionPane.showMessageDialog(rootPane, "Introduce todos los datos por favor!");
 				}
