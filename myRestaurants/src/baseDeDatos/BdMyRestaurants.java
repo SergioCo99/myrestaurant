@@ -11,8 +11,9 @@ import java.util.logging.*;
 
 import javax.swing.JOptionPane;
 
-
+import restaurante.TipoComida;
 import usuario.TipoUsuario;
+import usuario.Usuario;
 
 public class BdMyRestaurants {
 	
@@ -57,25 +58,6 @@ public class BdMyRestaurants {
 	 * @return	sentencia de trabajo si se crea correctamente, null si hay cualquier error
 	 */
 
-	public static Statement usarCrearTablasBD( Connection con ) {
-		try {
-			Statement statement = con.createStatement();
-			statement.setQueryTimeout(30);  // poner timeout 30 msg
-			try {
-				statement.executeUpdate("create table arbol " +
-					"(zona string, latitud double, longitud double, nombre string, edad int, color int)");
-			} catch (SQLException e) {} // Tabla ya existe. Nada que hacer
-			log( Level.INFO, "Creada base de datos", null );
-			return statement;
-		} catch (SQLException e) {
-			lastError = e;
-			log( Level.SEVERE, "Error en creación de base de datos", e );
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
-	
 	public static void cerrarBD(final Connection con, final Statement st) {
 		try {
 			if (st != null)
@@ -87,9 +69,8 @@ public class BdMyRestaurants {
 			e.printStackTrace();
 		}
 	}
-	public static void CrearUsuario(int id_usuario, String nombreUsuario, String correo, String contrasenya, int telefono,
-			 String direccion, TipoUsuario tipo) {
-
+	public static void crearUsuario(int id_usuario, String nombreUsuario, String correo, String contrasenya, int telefono,
+			 TipoUsuario tipo){
 		BdMyRestaurants conexion = new BdMyRestaurants();
 		Connection cn = null;
 		Statement stm = null;
@@ -100,42 +81,41 @@ public class BdMyRestaurants {
 		try {
 			cn = conexion.initBD();
 			stm = cn.createStatement();
-			rs = stm.executeQuery("SELECT * FROM Usuario");
+			rs = stm.executeQuery("SELECT * FROM usuario");
 			ps = cn.prepareStatement(
-					"INSERT INTO Usuario(id_usuario, correo, nombreUsuario, contrasenya, direccion, telefono, tipo) VALUES(?,?,?,?,?,?)");
+					"INSERT INTO usuario(id_usuario, correo, nombreUsuario, contrasenya, direccion, telefono, tipo) VALUES(?,?,?,?,?,?)");
 
+			ps.setInt(1, id_usuario);
 			ps.setString(1, nombreUsuario);
-			
+			ps.setString(3, correo);
+			ps.setString(4, contrasenya);
+			ps.setInt(5, telefono);
+			ps.setString(5, tipo.name());
 
 			int res = ps.executeUpdate();
-
+			
 			if (res > 0) {
 				JOptionPane.showMessageDialog(null, "El usuario creado correctamente");
 			} else {
 				JOptionPane.showMessageDialog(null, "ERROR al crear el usuario!");
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
 				if (rs != null) {
 					rs.close();
-				}
-
-				if (stm != null) {
+				}if (stm != null) {
 					stm.close();
-				}
-
-				if (cn != null) {
+				}if (cn != null) {
 					cn.close();
 				}
-
-			} catch (Exception e2) {
+			}catch (Exception e2) {
 				e2.printStackTrace();
 			}
 		}
 	}
+	
 	public static boolean logIn(Statement st, String user, String passw) {
 		String SentSQL = "select * from Usuario where nombreUsuario = '" + user + "' and contrasena = '" + passw + "'";
 		try {
@@ -181,38 +161,74 @@ public class BdMyRestaurants {
 			return true;
 		}
 	}
-	public static void nuevoUsuario(Statement st,int id_us, String nombreUs, String cor, String contr, int tel,
-			 String direc, TipoUsuario tipo) {
-		String SentSQL = "insert into Usuario(id_usuario, correo, nombreUsuario, contrasenya, telefono, tipo) values('" + id_us
-				+ "','" + nombreUs +"," + cor + "'," + tel + "'," + direc + "'," + tipo + "," + contr + ");";
-		System.out.println(SentSQL);
+	public static void crearRestaurante(String nombre, double horarioApertura, double horarioCierre, String direccion, int telefono,
+			TipoComida tipocomida){
+		BdMyRestaurants conexion = new BdMyRestaurants();
+		Connection cn = null;
+		Statement stm = null;
+		ResultSet rs = null;
+
+		PreparedStatement ps;
+
 		try {
-			st.executeUpdate(SentSQL);
+			cn = conexion.initBD();
+			stm = cn.createStatement();
+			rs = stm.executeQuery("SELECT * FROM restaurante");
+			ps = cn.prepareStatement(
+					"INSERT INTO restaurante(nombre, horarioApertura, horarioCierre, direccion, telefono, tipoComida) VALUES(?,?,?,?,?,?)");
+
+			ps.setString(1, nombre);
+			ps.setDouble(2, horarioApertura);
+			ps.setDouble(3, horarioCierre);
+			ps.setString(4, direccion);
+			ps.setInt(5, telefono);
+			ps.setString(6, tipocomida.name());
+
+			int res = ps.executeUpdate();
+			
+			if (res > 0) {
+				JOptionPane.showMessageDialog(null, "El restaurante ha sido creado correctamente");
+			} else {
+				JOptionPane.showMessageDialog(null, "ERROR al crear el restaurante!");
+			}
 		} catch (SQLException e) {
-			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error nuevoUsuario\n" + SentSQL, e);
 			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}if (stm != null) {
+					stm.close();
+				}if (cn != null) {
+					cn.close();
+				}
+			}catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
 	}
-	public static void eliminarUsuario(Statement st, String nomb_usu) {
-		String SentSQL = "delete from Usuario where nombre_usuario = '" + nomb_usu + "';";
+	public static boolean existeRestaurante(Statement st, String nombre) {
+		String SentSQL = "select nombre from restaurante where nombre = " + "'" + nombre + "';";
 		System.out.println(SentSQL);
+
 		try {
-			st.executeUpdate(SentSQL);
+			ResultSet rs = st.executeQuery(SentSQL);
+
+			rs.next();
+
+			String b = rs.getString("nombre");
+			System.out.println(b);
+			if (b.equals(nombre)) {
+				System.out.println("Restaurante existente");
+				return false;
+			} else {
+				System.out.println("Restaurante no existente");
+				return true;
+			}
+
 		} catch (SQLException e) {
-			System.out.println(e);
-			System.out.println("Catch BdMyRestaurants.eliminarUsuario");
-			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error eliminarUsuario\n" + SentSQL, e);
-			e.printStackTrace();
-		}
-	}
-	public static void cambiarContrasenya(Statement st, String passw, String nomb_usu) {
-		String SentSQL = "UPDATE usuario SET contrasenya = '" + passw + "' WHERE nombre_usuario = '" + nomb_usu + "';";
-		System.out.println(SentSQL);
-		try {
-			st.executeUpdate(SentSQL);
-		} catch (SQLException e) {
-			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error cambiarContraseï¿½a\n" + SentSQL, e);
-			e.printStackTrace();
+			System.out.println("catch de -> BdMyRestaurants.existeRestaurante, por lo tanto, el restaurante no existe");
+			return true;
 		}
 	}
 	private static Logger logger = null;

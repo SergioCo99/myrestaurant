@@ -36,7 +36,7 @@ public class VentanaRegistro extends JFrame{
 	public static Logger BDLogger;
 
 	
-	//Hay que vincularlo con la BD
+	
 	public VentanaRegistro() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -140,8 +140,7 @@ public class VentanaRegistro extends JFrame{
 			}
 		});
 		
-		//Errores de registro
-		//Eto para que???!!!
+		
 		errorNombre = new JLabel();
 		errorNombre.setBounds(250, 80, 150, 30);
 		errorNombre.setForeground(Color.RED);
@@ -175,7 +174,7 @@ public class VentanaRegistro extends JFrame{
 				if(nombre.matches("^[A-Za-z0-9]*$") && email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
 						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && (textContrasenya.getPassword().length != 0)
 						&& telefono.matches("^[0-9]*$") && telefono.length()==9 && usuario.isSelected()){
-					if(BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
+					if(BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {//esto es la conexion a la bd pero da mal
 						VentanaMenu v = new VentanaMenu();
 						v.setSize(1000, 600);
 						v.setVisible(true);
@@ -191,7 +190,7 @@ public class VentanaRegistro extends JFrame{
 				if(nombre.matches("^[A-Za-z0-9]*$") && email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
 						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && (textContrasenya.getPassword().length != 0)
 						&& telefono.matches("^[0-9]*$") && telefono.length()==9 && gestor.isSelected()) {
-					if( BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
+					if( BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {//esto es la conexion a la bd pero da mal
 						VAdmin1 v = new VAdmin1();
 					v.setSize(1000, 600);
 					v.setVisible(true);

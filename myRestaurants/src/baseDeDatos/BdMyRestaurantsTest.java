@@ -1,4 +1,4 @@
-/*package baseDeDatos;
+package baseDeDatos;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -11,11 +11,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import restaurante.TipoComida;
 import usuario.TipoUsuario;
 
 public class BdMyRestaurantsTest {
 
-	Connection conexion = BdMyRestaurants.conectar();
+	Connection conexion = BdMyRestaurants.initBD();
 
 	@Before
 	public void conexionTest() {
@@ -52,7 +53,7 @@ public class BdMyRestaurantsTest {
 		Statement st;
 		try {
 			st = conexion.createStatement();
-			assertTrue(BdMyRestaurants.existeUsuario(st, "jokin@gmail.com"));
+			assertTrue(BdMyRestaurants.existeUsuario(st, "jokin87@gmail.com"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -63,29 +64,29 @@ public class BdMyRestaurantsTest {
 		Statement st;
 		try {
 			st = conexion.createStatement();
-			BdMyRestaurants.nuevoUsuario(st, 1 , "jokin87", "lauram@gmail.com","123", 688547115, "Elezalde kalea", TipoUsuario.CLIENTE);
+			BdMyRestaurants.crearUsuario(0014, "jokin87", "jokin87@gmail.com", "123Deusto", 685740319, TipoUsuario.CLIENTE);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Test
-	public void eliminarUsuarioTest() {
+	public void existeRestauranteTest() {
 		Statement st;
 		try {
 			st = conexion.createStatement();
-			BdMyRestaurants.eliminarUsuario(st, "lauram@gmail.com");
+			assertTrue(BdMyRestaurants.existeRestaurante(st, "Como en casa"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Test
-	public void cambiarContrasenyaTest() {
+	public void nuevoRestauranteTest() {
 		Statement st;
 		try {
 			st = conexion.createStatement();
-			BdMyRestaurants.cambiarContrasenya(st, "123", "lauram@gmail.com");
+			BdMyRestaurants.crearRestaurante("Como en Casa", 8.00, 23.00, "Calle Agapito", 900000000, TipoComida.COMIDACASERA);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -94,4 +95,3 @@ public class BdMyRestaurantsTest {
 
 
 }
-*/

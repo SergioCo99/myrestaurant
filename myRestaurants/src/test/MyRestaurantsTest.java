@@ -10,16 +10,16 @@ import restaurante.Restaurante;
 public class MyRestaurantsTest {
 	@Test
 	public void test() {
-		Restaurante rest = new Restaurante("Como en Casa", 8, 23, "Calle Agapito", 900000000, TipoComida.COMIDACASERA);
+		Restaurante rest = new Restaurante("Como en Casa", 8.00, 23.00, "Calle Agapito", 900000000, TipoComida.COMIDACASERA);
 		
 		String nombre = rest.getNombre();
 		assertEquals("Como en Casa", nombre);
 		
-		int hAper = rest.getHorarioApertura();
-		assertEquals(8, hAper);
+		double hAper = rest.getHorarioApertura();
+		assertEquals(8.00, hAper);
 		
-		int hCier = rest.getHorarioCierre();
-		assertEquals(23, hCier);
+		double hCier = rest.getHorarioCierre();
+		assertEquals(8.00, hCier);
 		
 		String calle = rest.getDireccion();
 		assertEquals("Calle Agapito", calle);

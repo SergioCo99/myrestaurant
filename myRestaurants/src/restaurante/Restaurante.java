@@ -5,14 +5,14 @@ public class Restaurante {
 
 	private int id_restaurante;
 	private String nombre;
-	private int horarioApertura;
-	private int horarioCierre;
+	private double horarioApertura;
+	private double horarioCierre;
 	private String direccion;
 	private int telefono;
 	//enum
 	private TipoComida tipocomida;
 	
-	public Restaurante(String nombre, int horarioApertura, int horarioCierre, String direccion, int telefono, TipoComida tipocomida) {
+	public Restaurante(String nombre, double horarioApertura, double horarioCierre, String direccion, int telefono, TipoComida tipocomida) {
 		super();
 		this.id_restaurante = contador;
 		contador++;
@@ -50,15 +50,15 @@ public class Restaurante {
 		this.nombre = nombre;
 	}
 
-	public int getHorarioApertura() {
+	public double getHorarioApertura() {
 		return horarioApertura;
 	}
 
-	public void setHorarioApertura(int horarioApertura) {
+	public void setHorarioApertura(double horarioApertura) {
 		this.horarioApertura = horarioApertura;
 	}
 	
-	public int getHorarioCierre() {
+	public double getHorarioCierre() {
 		return horarioCierre;
 	}
 

@@ -85,7 +85,7 @@ public class VInicSesUsu extends JFrame{
 				
 				if(correo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")&& textContrasenya.getPassword().length != 0 ){//linkearlo con la bd
-					if(BdMyRestaurants.logIn(st, textCorreo.getText(), textContrasenya.getPassword().toString()) == true) {
+					if(BdMyRestaurants.logIn(st, textCorreo.getText(), textContrasenya.getPassword().toString()) == true) {//esto es la conexion a la bd pero da mal
 						VentanaMenu v = new VentanaMenu();
 						v.setSize(1000, 600);
 						v.setVisible(true);

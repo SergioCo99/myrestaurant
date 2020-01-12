@@ -88,7 +88,7 @@ public class VInicSesAdm extends JFrame{
 							&& textContrasenya.getPassword().length != 0 ){//arreglar
 					
 		
-					if (BdMyRestaurants.logIn(st, textCorreo.getText(), textContrasenya.getPassword().toString()) == true) {
+					if (BdMyRestaurants.logIn(st, textCorreo.getText(), textContrasenya.getPassword().toString()) == true) {//esto es la conexion a la bd pero da mal
 						
 						VAdmin1 v54 = new VAdmin1 ();
 						v54.setSize(1000, 600);
