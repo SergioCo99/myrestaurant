@@ -173,39 +173,50 @@ public class VentanaRegistro extends JFrame{
 			
 				if(nombre.matches("^[A-Za-z0-9]*$") && email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
 						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && (textContrasenya.getPassword().length != 0)
-						&& telefono.matches("^[0-9]*$") && telefono.length()==9 && usuario.isSelected()){
-					if(BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {//esto es la conexion a la bd pero da mal
+						&& telefono.matches("^[0-9]*$") && telefono.length()==9 && usuario.isSelected() ) { 
+						//&& BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false){
+					
 						VentanaMenu v = new VentanaMenu();
 						v.setSize(1000, 600);
 						v.setVisible(true);
 						v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 						v.setTitle("MyRestaurant");
 						dispose();
+						
+		/*				
+					}else if(BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true) {
+						JOptionPane.showMessageDialog(rootPane, "Esta cuenta ya existe.");
+					}else if (!nombre.matches("^[A-Za-z0-9]*$") || !email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
+							+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") || (textContrasenya.getPassword().length != 0)
+							|| telefono.matches("^[0-9]*$") || telefono.length()==9){
+						
+						JOptionPane.showMessageDialog(rootPane, "Introduzca bien los datos!");
 					}
-					 else {
-						JOptionPane.showMessageDialog(rootPane, "Esta cuenta ya existe");
-					}
-					
-				}
+		*/			}
 				if(nombre.matches("^[A-Za-z0-9]*$") && email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
 						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && (textContrasenya.getPassword().length != 0)
-						&& telefono.matches("^[0-9]*$") && telefono.length()==9 && gestor.isSelected()) {
-					if( BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {//esto es la conexion a la bd pero da mal
+						&& telefono.matches("^[0-9]*$") && telefono.length()==9 && gestor.isSelected()){
+						//&& BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
+					
 						VAdmin1 v = new VAdmin1();
 					v.setSize(1000, 600);
 					v.setVisible(true);
 					v.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 					v.setTitle("MyRestaurant");
 					dispose();
-					}else {
-						JOptionPane.showMessageDialog(rootPane, "Esta cuenta ya existe");
-
-					}
+			/*		
 					
-				}else {
-					JOptionPane.showMessageDialog(rootPane, "Introduzca los datos correctamente.");
+				}else if(BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true) {
+					JOptionPane.showMessageDialog(rootPane, "Esta cuenta ya existe.");
+				}else if (!nombre.matches("^[A-Za-z0-9]*$") || !email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
+						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") || (textContrasenya.getPassword().length != 0)
+						|| telefono.matches("^[0-9]*$") || telefono.length()==9){
+					
+					JOptionPane.showMessageDialog(rootPane, "Introduzca bien los datos!");
 				}
+		*/		
 			}
+		}
 		});
 		
 		

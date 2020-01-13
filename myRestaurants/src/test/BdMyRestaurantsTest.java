@@ -1,4 +1,4 @@
-package baseDeDatos;
+package test;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import restaurante.TipoComida;
 import usuario.TipoUsuario;
-
+import baseDeDatos.BdMyRestaurants;
 public class BdMyRestaurantsTest {
 
 	Connection conexion = BdMyRestaurants.initBD();
@@ -53,7 +53,7 @@ public class BdMyRestaurantsTest {
 		Statement st;
 		try {
 			st = conexion.createStatement();
-			assertTrue(BdMyRestaurants.existeUsuario(st, "jokin87@gmail.com"));
+			assertTrue(BdMyRestaurants.existeUsuario(st, "jokin@gmail.com"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -64,7 +64,7 @@ public class BdMyRestaurantsTest {
 		Statement st;
 		try {
 			st = conexion.createStatement();
-			BdMyRestaurants.crearUsuario(1, "jokin87", "jokin87@gmail.com", "123Deusto", 685740319, TipoUsuario.CLIENTE);
+			BdMyRestaurants.crearUsuario(1, "jokin", "jokin87@gmail.com", "123Deusto", 685740319, TipoUsuario.GESTOR);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

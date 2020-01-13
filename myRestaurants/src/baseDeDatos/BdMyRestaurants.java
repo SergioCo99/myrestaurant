@@ -144,8 +144,8 @@ public class BdMyRestaurants {
 
 	}
 	
-	public static boolean existeUsuario(Statement st, String nombreUs) {
-		String SentSQL = "select nombreUsuario from Usuario where nombreUsuario = " + "'" + nombreUs + "';";
+	public static boolean existeUsuario(Statement st, String correo) {
+		String SentSQL = "select nombreUsuario from usuario where correo = " + "'" + correo + "';";
 		System.out.println(SentSQL);
 
 		try {
@@ -155,7 +155,7 @@ public class BdMyRestaurants {
 
 			String b = rs.getString("nombreUsuario");
 			System.out.println(b);
-			if (b.equals(nombreUs)) {
+			if (b.equals(correo)) {
 				System.out.println("Usuario existente");
 				return false;
 			} else {

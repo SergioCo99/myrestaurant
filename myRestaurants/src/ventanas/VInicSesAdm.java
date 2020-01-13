@@ -80,10 +80,11 @@ public class VInicSesAdm extends JFrame{
 			
 				
 				if(correo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
-+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")&& textContrasenya.getPassword().length != 0 ){
++ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")&& textContrasenya.getPassword().length != 0 ) {
+	//	&& BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true ){
 					
 						if(BdMyRestaurants.logIn(st, textCorreo.getText(), textContrasenya.getPassword().toString()) == true) {//esto es la conexion a la bd pero da mal
-					if( BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false) {
+					
 							VAdmin1 v = new VAdmin1();
 							v.setSize(1000, 600);
 							v.setVisible(true);
@@ -91,22 +92,24 @@ public class VInicSesAdm extends JFrame{
 							v.setTitle("MyRestaurant");
 							dispose();	
 						}else {
-							JOptionPane.showMessageDialog(rootPane, "Correo o/y contraseña incorrectas");
+							//JOptionPane.showMessageDialog(rootPane, "Correo o/y contraseña incorrectas");
+							JOptionPane.showMessageDialog(rootPane, "Introduzca los datos correctamente!");
 
 						}
-				
+		/*		
 					}	
-					else {
-						JOptionPane.showMessageDialog(rootPane, "Este administrador no existe!");
+					else  if(!correo.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
++ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")|| textContrasenya.getPassword().length == 0 ){
+						JOptionPane.showMessageDialog(rootPane, "Introduzca los datos correctamente!");
 					}
 					
-				
-					
+					else  if(BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false  ){
+						
+						JOptionPane.showMessageDialog(rootPane, "Este administrador no existe!");
+												}	
+	*/											
 			}
-			else {
-				JOptionPane.showMessageDialog(rootPane, "Introduzca los datos correctamente!");
-			} 
-			}				
+			}			
 			
 		});
 		
