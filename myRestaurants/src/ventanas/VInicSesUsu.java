@@ -81,7 +81,7 @@ public class VInicSesUsu extends JFrame{
 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")&& textContrasenya.getPassword().length != 0 && 
 		BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == true ){
 					
-						if(BdMyRestaurants.logIn(st, textCorreo.getText(), textContrasenya.getPassword().toString()) == true) {//esto es la conexion a la bd pero da mal
+						//if(BdMyRestaurants.logIn(st, textCorreo.getText(), textContrasenya.getPassword().toString()) == true) {//esto es la conexion a la bd pero da mal
 					
 							VentanaMenu v = new VentanaMenu();
 							v.setSize(1000, 600);
@@ -104,9 +104,9 @@ public class VInicSesUsu extends JFrame{
 						
 						JOptionPane.showMessageDialog(rootPane, "Este usuario no existe!");
 												}	
-			*/
+			
 			}
-						
+			*/			
 			}
 		});
 		

@@ -41,7 +41,7 @@ public class BdMyRestaurantsTest {
 		Statement st;
 		try {
 			st = conexion.createStatement();
-			assertTrue(BdMyRestaurants.logIn(st, "a", "a"));
+			assertTrue(BdMyRestaurants.logIn(st, "jokin", "123Deusto"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
