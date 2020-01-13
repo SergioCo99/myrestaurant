@@ -7,19 +7,19 @@ import org.junit.Test;
 import restaurante.TipoComida;
 import restaurante.Restaurante;
 
-public class MyRestaurantsTest {
+public class Test1 {
 	@Test
 	public void test() {
-		Restaurante rest = new Restaurante("Como en Casa", 8.00, 23.00, "Calle Agapito", 900000000, TipoComida.COMIDACASERA);
+		Restaurante rest = new Restaurante("Como en Casa", 8, 23, "Calle Agapito", 900000000, TipoComida.COMIDACASERA);
 		
 		String nombre = rest.getNombre();
 		assertEquals("Como en Casa", nombre);
 		
-		double hAper = rest.getHorarioApertura();
-		assertEquals(8.00, hAper);
+		int hAper = (int) rest.getHorarioApertura();
+		assertEquals(8, hAper);
 		
-		double hCier = rest.getHorarioCierre();
-		assertEquals(8.00, hCier);
+		int hCier = (int) rest.getHorarioCierre();
+		assertEquals(23, hCier);
 		
 		String calle = rest.getDireccion();
 		assertEquals("Calle Agapito", calle);
