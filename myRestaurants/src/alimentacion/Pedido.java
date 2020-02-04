@@ -1,50 +1,21 @@
 package alimentacion;
 
-import java.util.Arrays;
+import java.util.List;
+import java.util.Map.Entry;
 
-public class Pedido {
-	private static int contador = 1;
-	private int id;
-	private Producto[] productos;
+public interface Pedido {
+	public void anyadirPedido(Producto producto, int cantidad);
+
+
+	public void eliminarPedido(Producto producto, int cantidad);
+
+
+	public float precioTotal();
+
+
+	public int productosDistintos();
+
 	
-	
-	public Pedido(int id, Producto[] productos) {
-		super();
-		contador++;
-		this.id = contador;
-		this.productos = productos;
-	}
-	
-	public Pedido() {
-		super();
-		contador++;
-		this.id = contador;
-		this.productos = null;
-	}
+	public List<Entry<Producto, Integer>> listaProductos();
 
-	public static int getContador() {
-		return contador;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Producto[] getProductos() {
-		return productos;
-	}
-
-	public void setProductos(Producto[] productos) {
-		this.productos = productos;
-	}
-
-	@Override
-	public String toString() {
-		return "Pedido [id=" + id + ", productos=" + Arrays.toString(productos) + "]";
-	}
-	
 }

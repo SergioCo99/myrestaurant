@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 import java.util.logging.*;
 
 
@@ -24,9 +25,33 @@ public class BdMyRestaurants {
 	private static final String URL =  "jdbc:mysql://localhost:3306/myrestaurants?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private static final String USUARIO = "root";
 	private static final String CLAVE = "1234Clave";
+	private static Thread hilo = null;
+	private static Vector<Runnable> tareasPendientes;  // Vector es synchronized con lo que se puede a la vez manejar desde varios hilos
+	static {
+		tareasPendientes = new Vector<>();
+	}
+	private static void initHilo() {
+		hilo = new Thread() {
+			@Override
+			public void run() {
+				while (!interrupted()) {
+					while (!tareasPendientes.isEmpty()) {
+						Runnable r = tareasPendientes.remove(0);
+						r.run();
+					}
+					try { Thread.sleep( 10 ); } catch (InterruptedException e) { break; }
+				}
+				hilo = null;
+				System.out.println( "Cierre de hilo." );
+			}
+		};
+		hilo.start();
+	}
 
+	private static Exception error = null;
+	
 	public static Connection initBD() {
-
+		if (hilo == null) initHilo();
 		try {
 			Class.forName(CONTROLADOR);
 			Connection con = DriverManager.getConnection(URL, USUARIO, CLAVE);
@@ -66,6 +91,7 @@ public class BdMyRestaurants {
 	 */
 
 	public static void cerrarBD(final Connection con, final Statement st) {
+		tareasPendientes.add( new Runnable() { @Override public void run() {
 		try {
 			if (st != null)
 				st.close();
@@ -75,9 +101,13 @@ public class BdMyRestaurants {
 			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error al cerrar la base de datos.", e);
 			e.printStackTrace();
 		}
+		if (hilo!=null) hilo.interrupt();
+		}
+		});
 	}
 	public static void crearUsuario(int id_usuario, String nombreUsuario, String correo, String contrasenya, int telefono,
 			 TipoUsuario tipo){
+		tareasPendientes.add( new Runnable() { @Override public void run() {
 		BdMyRestaurants conexion = new BdMyRestaurants();
 		Connection cn = null;
 		Statement stm = null;
@@ -121,6 +151,7 @@ public class BdMyRestaurants {
 				e2.printStackTrace();
 			}
 		}
+		}});
 	}
 	
 	public static boolean logIn(Statement st, String user, String passw) {
@@ -170,6 +201,7 @@ public class BdMyRestaurants {
 	}
 	public static void crearRestaurante(int id_restaurante, String nombre, double horarioApertura, double horarioCierre, String direccion, int telefono,
 			TipoComida tipocomida){
+		tareasPendientes.add( new Runnable() { @Override public void run() {
 		BdMyRestaurants conexion = new BdMyRestaurants();
 		Connection cn = null;
 		Statement stm = null;
@@ -214,6 +246,7 @@ public class BdMyRestaurants {
 				e2.printStackTrace();
 			}
 		}
+		}});
 	}
 	public static boolean existeRestaurante(Statement st, String nombre) {
 		String SentSQL = "select nombre from restaurante where nombre = " + "'" + nombre + "';";

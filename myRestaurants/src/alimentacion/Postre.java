@@ -3,9 +3,9 @@ package alimentacion;
 public class Postre extends Producto{
 	private String nombre;
 	private String descripcion;
-	private int precio;
+	private double precio;
 
-	public Postre(String nombre, String descripcion, int precio) {
+	public Postre(String nombre, String descripcion, double precio) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -35,11 +35,11 @@ public class Postre extends Producto{
 		this.descripcion = descripcion;
 	}
 
-	public int getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(int precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 

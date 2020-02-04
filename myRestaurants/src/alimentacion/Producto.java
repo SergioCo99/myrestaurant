@@ -3,10 +3,10 @@ package alimentacion;
 public class Producto {
 	private String nombre;
 	private String descripcion;
-	private int precio;
+	private double precio;
 	
 	
-	public Producto(String nombre, String descripcion, int precio) {
+	public Producto(String nombre, String descripcion, double precio) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -36,11 +36,11 @@ public class Producto {
 		this.descripcion = descripcion;
 	}
 
-	public int getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(int precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 

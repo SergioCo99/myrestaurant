@@ -4,7 +4,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import baseDeDatos.BdMyRestaurants;
-
+import usuario.TipoUsuario;
+import usuario.Usuario;
 
 //import baseDeDatos.BdMyRestaurants;
 
@@ -162,20 +163,19 @@ public class VentanaRegistro extends JFrame{
 				String nombre = textUsuario.getText();
 				String email = textCorreo.getText();
 				String telefono = textTelefono.getText();
+				int id = textUsuario.getComponentCount();
+				String contrasenya = textContrasenya.getPassword().toString();
+				TipoUsuario tipo = TipoUsuario.valueOf("usuario");
 				
 				Connection conexion = BdMyRestaurants.initBD();
-				Statement st = null;
-				try {
-					st = conexion.createStatement();
-				} catch (SQLException e1) {
-
-				}
+				Statement st = BdMyRestaurants.usarBD(conexion);
 			
 				if(nombre.matches("^[A-Za-z0-9]*$") && email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" 
 						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && (textContrasenya.getPassword().length != 0)
-						&& telefono.matches("^[0-9]*$") && telefono.length()==9 && usuario.isSelected() ) { 
-						//&& BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false){
-					
+						&& telefono.matches("^[0-9]*$") && telefono.length()==9 && usuario.isSelected() 
+						&& BdMyRestaurants.existeUsuario(st, textCorreo.getText()) == false){
+						
+						BdMyRestaurants.crearUsuario(id, nombre, email, contrasenya, Integer.parseInt(telefono), tipo);
 						VentanaMenu v = new VentanaMenu();
 						v.setSize(1000, 600);
 						v.setVisible(true);

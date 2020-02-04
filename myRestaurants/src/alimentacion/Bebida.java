@@ -3,10 +3,10 @@ package alimentacion;
 public class Bebida extends Producto{
 	private String nombre;
 	private String descripcion;
-	private int precio;
+	private double precio;
 	private boolean conAlcohol;
 	
-	public Bebida(String nombre, String descripcion, int precio, String nombre2, String descripcion2, int precio2,
+	public Bebida(String nombre, String descripcion, double precio, String nombre2, String descripcion2, double precio2,
 			boolean conAlcohol) {
 		super(nombre, descripcion, precio);
 		nombre = nombre2;
@@ -31,7 +31,7 @@ public class Bebida extends Producto{
 		this.descripcion = descripcion;
 	}
 
-	public int getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
