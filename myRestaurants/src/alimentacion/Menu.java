@@ -3,9 +3,13 @@ package alimentacion;
 public class Menu extends Producto{
 	private int numeroMenu;
 
-	public Menu(String nombre, String descripcion, int precio, int numeroMenu) {
+	public Menu(String nombre, String descripcion, double precio, int numeroMenu) {
 		super(nombre, descripcion, precio);
 		this.numeroMenu = numeroMenu;
+	}
+	public Menu() {
+		super();
+		this.numeroMenu = 0;
 	}
 
 	public Menu(int numeroMenu) {

@@ -6,13 +6,18 @@ public class Bebida extends Producto{
 	private double precio;
 	private boolean conAlcohol;
 	
-	public Bebida(String nombre, String descripcion, double precio, String nombre2, String descripcion2, double precio2,
-			boolean conAlcohol) {
+	public Bebida(String nombre, String descripcion, double precio,boolean conAlcohol) {
 		super(nombre, descripcion, precio);
-		nombre = nombre2;
-		descripcion = descripcion2;
-		precio = precio2;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.precio = precio;
 		this.conAlcohol = conAlcohol;
+	}
+	public Bebida() {
+		nombre = "";
+		descripcion = "";
+		precio = 0;
+		conAlcohol = false;
 	}
 
 	public String getNombre() {
@@ -46,6 +51,7 @@ public class Bebida extends Producto{
 	public void setConAlcohol(boolean conAlcohol) {
 		this.conAlcohol = conAlcohol;
 	}
+	
 
 	@Override
 	public String toString() {

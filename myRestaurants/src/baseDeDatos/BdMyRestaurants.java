@@ -155,12 +155,12 @@ public class BdMyRestaurants {
 	}
 	
 	public static boolean logIn(Statement st, String user, String passw) {
-		String SentSQL = "select * from Usuario where nombreUsuario = '" + user + "' and contrasena = '" + passw + "'";
+		String SentSQL = "select * from Usuario where nombreUsuario = '" + user + "' and contrasenya = '" + passw + "'";
 		try {
 			ResultSet rs = st.executeQuery(SentSQL);
 			rs.next();
 
-			String a = rs.getString("contrasena");
+			String a = rs.getString("contrasenya");
 			if (a.equals(passw)) {
 				System.out.println(SentSQL);
 				return true;
@@ -168,7 +168,7 @@ public class BdMyRestaurants {
 				return false;
 			}
 		} catch (SQLException e) {
-			ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error logIn\n" + SentSQL, e);
+			//ventanas.VentanaRegistro.BDLogger.log(Level.SEVERE, "Error logIn\n" + SentSQL, e);
 			e.printStackTrace();
 			return false;
 		}

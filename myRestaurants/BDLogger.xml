@@ -10491,3 +10491,523 @@
   <message>Conectada base de datos myrestaurants.sql</message>
 </record>
 </log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:03:31.215417400Z</date>
+  <millis>1580922211215</millis>
+  <nanos>417400</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T17:03:31.265283900Z</date>
+  <millis>1580922211265</millis>
+  <nanos>283900</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:03:54.376122100Z</date>
+  <millis>1580922234376</millis>
+  <nanos>122100</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T17:03:54.430971600Z</date>
+  <millis>1580922234430</millis>
+  <nanos>971600</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:04:07.538259400Z</date>
+  <millis>1580922247538</millis>
+  <nanos>259400</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T17:04:07.601092800Z</date>
+  <millis>1580922247601</millis>
+  <nanos>92800</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:04:58.690182900Z</date>
+  <millis>1580922298690</millis>
+  <nanos>182900</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:05:12.068762500Z</date>
+  <millis>1580922312068</millis>
+  <nanos>762500</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T17:05:12.113616400Z</date>
+  <millis>1580922312113</millis>
+  <nanos>616400</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:06:08.062953800Z</date>
+  <millis>1580922368062</millis>
+  <nanos>953800</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T17:06:08.126782700Z</date>
+  <millis>1580922368126</millis>
+  <nanos>782700</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:06:32.819033800Z</date>
+  <millis>1580922392819</millis>
+  <nanos>33800</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T17:06:32.861892300Z</date>
+  <millis>1580922392861</millis>
+  <nanos>892300</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:10:39.045411700Z</date>
+  <millis>1580922639045</millis>
+  <nanos>411700</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T17:10:39.108243Z</date>
+  <millis>1580922639108</millis>
+  <nanos>243000</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:10:58.328187600Z</date>
+  <millis>1580922658328</millis>
+  <nanos>187600</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T17:10:58.371074100Z</date>
+  <millis>1580922658371</millis>
+  <nanos>74100</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:16:22.141977600Z</date>
+  <millis>1580922982141</millis>
+  <nanos>977600</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T17:16:22.187854700Z</date>
+  <millis>1580922982187</millis>
+  <nanos>854700</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:17:18.319234400Z</date>
+  <millis>1580923038319</millis>
+  <nanos>234400</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T17:17:18.377058800Z</date>
+  <millis>1580923038377</millis>
+  <nanos>58800</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T17:34:21.290237200Z</date>
+  <millis>1580924061290</millis>
+  <nanos>237200</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T17:34:21.332126200Z</date>
+  <millis>1580924061332</millis>
+  <nanos>126200</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T20:37:09.918053Z</date>
+  <millis>1580935029918</millis>
+  <nanos>53000</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T20:37:09.958965700Z</date>
+  <millis>1580935029958</millis>
+  <nanos>965700</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T20:48:38.659148700Z</date>
+  <millis>1580935718659</millis>
+  <nanos>148700</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T20:48:38.701005300Z</date>
+  <millis>1580935718701</millis>
+  <nanos>5300</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T20:50:49.066556Z</date>
+  <millis>1580935849066</millis>
+  <nanos>556000</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T20:50:49.108413800Z</date>
+  <millis>1580935849108</millis>
+  <nanos>413800</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T20:51:41.323799100Z</date>
+  <millis>1580935901323</millis>
+  <nanos>799100</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T20:51:41.377655900Z</date>
+  <millis>1580935901377</millis>
+  <nanos>655900</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T20:52:00.906322600Z</date>
+  <millis>1580935920906</millis>
+  <nanos>322600</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T20:52:00.966178500Z</date>
+  <millis>1580935920966</millis>
+  <nanos>178500</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>18</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T20:54:09.141899100Z</date>
+  <millis>1580936049141</millis>
+  <nanos>899100</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T20:54:09.188758100Z</date>
+  <millis>1580936049188</millis>
+  <nanos>758100</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-02-05T20:55:21.429714200Z</date>
+  <millis>1580936121429</millis>
+  <nanos>714200</nanos>
+  <sequence>0</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+<record>
+  <date>2020-02-05T20:55:21.470154400Z</date>
+  <millis>1580936121470</millis>
+  <nanos>154400</nanos>
+  <sequence>1</sequence>
+  <logger>baseDeDatos.BdMyRestaurants</logger>
+  <level>INFO</level>
+  <class>baseDeDatos.BdMyRestaurants</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Conectada base de datos myrestaurants.sql</message>
+</record>
+</log>
