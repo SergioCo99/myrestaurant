@@ -5,9 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import restaurante.Restaurante;
-import restaurante.TipoComida;
-
 public class UsuarioTest {
 private static Usuario usuario;
 	

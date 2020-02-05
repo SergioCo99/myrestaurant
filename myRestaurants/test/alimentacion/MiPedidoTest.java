@@ -13,7 +13,6 @@ import org.junit.Test;
 import alimentacion.MiPedido;
 import alimentacion.Producto;
 
-//EJERCICIO-3
 public class MiPedidoTest {
 	private static MiPedido miPedido;
 	

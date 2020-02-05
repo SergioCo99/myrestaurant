@@ -14,7 +14,6 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import restaurante.Restaurante;
 import restaurante.TipoComida;
 import usuario.TipoUsuario;
 
@@ -42,7 +41,7 @@ public class MyRestaurantsTest {
 	}
 	
 	@Test 
-	public void testCrearUsuario() {//faltat
+	public void testCrearUsuario() {
 		try {
 			BdMyRestaurants.crearUsuario(6, "antton15", "antton15@gmail.com", "Test1", 624120789, TipoUsuario.CLIENTE);
 
