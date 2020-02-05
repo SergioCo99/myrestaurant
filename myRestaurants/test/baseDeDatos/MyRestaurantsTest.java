@@ -14,6 +14,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import restaurante.Restaurante;
 import restaurante.TipoComida;
 import usuario.TipoUsuario;
 
@@ -77,7 +78,7 @@ public class MyRestaurantsTest {
 		}
 	}
 		
-	@Test //Faltta
+	@Test 
 	public void testInicioSesion() {
 		Statement st;
 		try {
@@ -111,6 +112,7 @@ public class MyRestaurantsTest {
 			String nombreRestaurante;
 			double horaAp;
 			double horaCer;
+			String direccion;
 			int telefono;
 			TipoComida tipo;
 
@@ -119,14 +121,16 @@ public class MyRestaurantsTest {
 				nombreRestaurante = rs.getString("nombre");
 				horaAp = rs.getDouble("horaAp");
 				horaCer = rs.getDouble("horaCer");
+				direccion = rs.getString("direccion");
 				telefono = rs.getInt("telefono");
-				tipo = TipoComida.valueOf(rs.getString("Sidreria"));
+				tipo = TipoComida.valueOf(rs.getString("tipo"));
 				
 
 				assertEquals(8, id_restaurante);
 				assertEquals("lolo", nombreRestaurante);
 				assertEquals(10.00, horaAp);
 				assertEquals(22.00, horaCer);
+				assertEquals("Eretxo kalea", direccion);
 				assertEquals(632104957, telefono);
 				assertEquals(TipoComida.SIDRERIA, tipo);
 			}
@@ -143,5 +147,6 @@ public class MyRestaurantsTest {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 	}
 }

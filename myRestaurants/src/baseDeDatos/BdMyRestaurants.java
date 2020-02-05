@@ -6,12 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.*;
 
 
 import javax.swing.JOptionPane;
-
+import restaurante.Restaurante;
 import restaurante.TipoComida;
 import usuario.TipoUsuario;
 import usuario.Usuario;
@@ -247,7 +249,36 @@ public class BdMyRestaurants {
 			}
 		}
 		}});
+	}	
+	public static List<Restaurante> loadRestaurantes(Statement st){
+		List<Restaurante> restaurantes = new ArrayList<>();
+		String sentSQL = "select * from restaurante";
+		try {
+			ResultSet rs = st.executeQuery(sentSQL);
+			while(rs.next()) {
+				int id_restaurante = rs.getInt("id_restaurante");
+				String nombreRestaurante = rs.getString("nombre");
+				double horaAp = rs.getDouble("horaAp");
+				double horaCer = rs.getDouble("horaCer");
+				String direccion = rs.getString("direccion");
+				int telefono = rs.getInt("telefono");
+				TipoComida tipo = TipoComida.valueOf(rs.getString("tipo"));
+				Restaurante restaurante = new Restaurante(nombreRestaurante, horaAp, horaCer, direccion, telefono, tipo);
+				restaurantes.add(restaurante);
+				log(Level.INFO, "fila leida:" + restaurante, null);
+			}
+			log(Level.INFO, "Bd consultada" + sentSQL, null);
+		}catch (SQLException e) {
+			log( Level.SEVERE, "Error en BD\t" + sentSQL, e );
+			lastError = e;
+			e.printStackTrace();
+			
+		}
+		
+		
+		return restaurantes;
 	}
+	
 	public static boolean existeRestaurante(Statement st, String nombre) {
 		String SentSQL = "select nombre from restaurante where nombre = " + "'" + nombre + "';";
 		System.out.println(SentSQL);

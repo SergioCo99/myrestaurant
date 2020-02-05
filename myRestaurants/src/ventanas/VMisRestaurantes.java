@@ -5,11 +5,18 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -20,6 +27,11 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+
+import alimentacion.Producto;
+import baseDeDatos.BdMyRestaurants;
+import restaurante.Restaurante;
+
 import javax.swing.JScrollPane;
 
 
@@ -29,6 +41,7 @@ public class VMisRestaurantes extends JFrame {
 	private JLabel relojito;
 	public final static int ONE_SECOND = 1000;
 	private final SimpleDateFormat clockFormat = new SimpleDateFormat("H:mm:ss");
+	private JList<Restaurante> listaRestaurante= new JList<>();
 
 	public VMisRestaurantes() {
 		
@@ -64,10 +77,33 @@ public class VMisRestaurantes extends JFrame {
 		tabla.setBounds(12, 250, 650, 75);
 		setSize(450, 750);
 		scroll.setBounds(12, 250, 650, 75);
+		//JLIST
+		JScrollPane listScrollPane = new JScrollPane(listaRestaurante);
+		add(listScrollPane, BorderLayout.SOUTH);
+		listaRestaurante.setModel(new DefaultListModel<Restaurante>());
+		listaRestaurante.setEnabled(true);
 		
+		
+		VMisRestaurantes parent = this;
+		parent.addWindowListener(new WindowAdapter() {//metemos el jList en 'parent' EJERCICIO-4
+			
+			public void windowOpened(WindowEvent e) {//TODO:Swing
+				Connection con = BdMyRestaurants.initBD();
+				Statement st = BdMyRestaurants.usarBD(con);
+				List<Restaurante> restaurantes = BdMyRestaurants.loadRestaurantes(st);
+				DefaultListModel<Restaurante> model = (DefaultListModel<Restaurante>) listaRestaurante.getModel();
+				for(Restaurante restaurante : restaurantes) {//El nuevo delante
+					model.addElement(restaurante);
+				}
+				BdMyRestaurants.cerrarBD(con, st);
+			}
+		});
 		add(scroll);
 		setLayout(null);
 		setVisible(true);
+		
+		
+		
 	}
 	
 	public void agregarmenu(){
@@ -148,6 +184,7 @@ public class VMisRestaurantes extends JFrame {
 				}
 				
 			}));
+		  
 		 }
 	
 	public static void main(String[] a) {
